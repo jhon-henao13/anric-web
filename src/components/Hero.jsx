@@ -11,7 +11,7 @@ export default function Hero() {
         <img 
           src={bgHero} 
           alt="ANRIC Almacén e Hidráulicos" 
-          class="w-full h-full object-containt object-center scale-105 filter brightness-90"
+          class="w-full h-full object-cover object-center scale-105 filter brightness-90"
         />
         {/* Degradado oscuro a la izquierda para garantizar legibilidad del texto */}
         <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent"></div>
