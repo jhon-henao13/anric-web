@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import AdviceSection from './components/AdviceSection';
 import WhatsAppButton from './components/WhatsAppButton';
 import Footer from './components/Footer';
 
@@ -10,7 +11,7 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        {/* Aquí puedes agregar secciones futuras como Catálogo, Productos, etc. */}
+        <AdviceSection />
       </main>
       <Footer />
       <WhatsAppButton />
