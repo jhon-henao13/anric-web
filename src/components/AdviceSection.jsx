@@ -34,7 +34,7 @@ export default function AdviceSection() {
 
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-2 lg:gap-4 items-center">
             
-            {/* COLUMNA IZQUIERDA: Imagen con Recorte Asimétrico Característico */}
+            {/* COLUMNA IZQUIERDA: */}
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
