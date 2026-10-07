@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import AdviceSection from './components/AdviceSection';
 import StatsSection from './components/StatsSection';
 import CategoriesSection from './components/CategoriesSection';
+import BestSellersSection from './components/BestSellersSection';
 import WhatsAppButton from './components/WhatsAppButton';
 import Footer from './components/Footer';
 
@@ -16,6 +17,7 @@ function App() {
         <AdviceSection />
         <StatsSection />
         <CategoriesSection />
+        <BestSellersSection />
       </main>
       <Footer />
       <WhatsAppButton />

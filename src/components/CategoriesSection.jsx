@@ -88,10 +88,10 @@ export default function CategoriesSection() {
           transition={{ duration: 0.6 }}
           class="text-center mb-12 sm:mb-16"
         >
-          <h2 class="font-anton text-4xl sm:text-5xl lg:text-6xl tracking-wide uppercase text-white leading-tight">
+          <h2 class="font-anton text-4xl sm:text-5xl lg:text-6xl tracking-normal uppercase text-white leading-tight">
             EXPLORA NUESTRAS CATEGORÍAS
           </h2>
-          <p class="text-gray-400 text-lg sm:text-xl font-normal mt-2 tracking-wide">
+          <p class="text-gray-300 text-xl sm:text-2xl font-normal mt-2 tracking-wider mt-5">
             Equipos para tu operación
           </p>
         </motion.div>
