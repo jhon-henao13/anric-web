@@ -6,6 +6,7 @@ import StatsSection from './components/StatsSection';
 import CategoriesSection from './components/CategoriesSection';
 import BestSellersSection from './components/BestSellersSection';
 import WhyUsSection from './components/WhyUsSection';
+import InstagramSection from './components/InstagramSection';
 import WhatsAppButton from './components/WhatsAppButton';
 import Footer from './components/Footer';
 
@@ -20,6 +21,7 @@ function App() {
         <CategoriesSection />
         <BestSellersSection />
         <WhyUsSection />
+        <InstagramSection />
       </main>
       <Footer />
       <WhatsAppButton />
