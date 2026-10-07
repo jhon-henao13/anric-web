@@ -57,12 +57,10 @@ export default function StatsSection() {
   return (
     <section class="bg-gray-500 text-white py-16 lg:py-20 border-y border-neutral-900 relative overflow-hidden">
       
-      {/* Luz ambiental roja sutil en el centro */}
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-32 bg-anric-red/5 blur-3xl pointer-events-none"></div>
-
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Encabezado y Línea Acentuada */}
+        
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
