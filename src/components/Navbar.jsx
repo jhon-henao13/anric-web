@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import logoImg from '../assets/logo.png';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -22,10 +23,8 @@ export default function Navbar() {
           </div>
 
           {/* Menú Desktop */}
-          <nav class="hidden md:flex items-center space-x-8">
-            <a href="#productos" class="text-gray-200 hover:text-white font-medium text-base transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-anric-red hover:after:w-full after:transition-all">
-              Productos
-            </a>
+          <nav class="hidden md:flex items-center space-x-10">
+            <Link to="/productos" className="hover:text-anric-red transition-colors">Productos</Link>
             <a href="#nosotros" class="text-gray-200 hover:text-white font-medium text-base transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-anric-red hover:after:w-full after:transition-all">
               Nosotros
             </a>

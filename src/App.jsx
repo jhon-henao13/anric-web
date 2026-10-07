@@ -1,31 +1,31 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import AdviceSection from './components/AdviceSection';
-import StatsSection from './components/StatsSection';
-import CategoriesSection from './components/CategoriesSection';
-import BestSellersSection from './components/BestSellersSection';
-import WhyUsSection from './components/WhyUsSection';
-import InstagramSection from './components/InstagramSection';
 import WhatsAppButton from './components/WhatsAppButton';
 import Footer from './components/Footer';
 
+// Páginas importadas
+import Home from './pages/Home';
+import ProductsPage from './pages/ProductsPage';
+
 function App() {
   return (
-    <div class="bg-black min-h-screen text-white font-sans">
-      <Navbar />
-      <main>
-        <Hero />
-        <AdviceSection />
-        <StatsSection />
-        <CategoriesSection />
-        <BestSellersSection />
-        <WhyUsSection />
-        <InstagramSection />
-      </main>
-      <Footer />
-      <WhatsAppButton />
-    </div>
+    <Router>
+      <div className="bg-black min-h-screen text-white font-sans flex flex-col">
+        <Navbar />
+        
+        {/* Aquí se renderizará el contenido dinámico de cada ruta */}
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/productos" element={<ProductsPage />} />
+          </Routes>
+        </main>
+        
+        <Footer />
+        <WhatsAppButton />
+      </div>
+    </Router>
   );
 }
 
