@@ -55,7 +55,7 @@ export default function StatsSection() {
   ];
 
   return (
-    <section class="bg-gray-500 text-white py-16 lg:py-20 border-y border-neutral-900 relative overflow-hidden">
+    <section class="bg-gray-950 text-white py-16 lg:py-20 border-y border-neutral-900 relative overflow-hidden">
       
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-32 bg-anric-red/5 blur-3xl pointer-events-none"></div>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -68,7 +68,7 @@ export default function StatsSection() {
           transition={{ duration: 0.6 }}
           class="text-center mb-12 sm:mb-16"
         >
-          <h2 class="font-anton text-3xl sm:text-4xl lg:text-5xl tracking-widest uppercase text-white leading-tight">
+          <h2 class="font-anton text-3xl sm:text-4xl lg:text-5xl tracking-widest uppercase text-6 leading-tight">
             NUESTRA EXPERIENCIA, TU RESPALDO
           </h2>
           {/* Decorador de línea roja central */}
@@ -97,7 +97,7 @@ export default function StatsSection() {
 
               {/* Número y Descripción */}
               <div class="flex flex-col">
-                <span class="font-anton text-4xl sm:text-5xl text-anric-red tracking-tight leading-none">
+                <span class="font-anton text-4xl sm:text-5xl text-white tracking-tight leading-none">
                   {stat.value}
                 </span>
                 <span class="text-xs sm:text-sm font-extrabold text-white uppercase tracking-wider mt-1.5 leading-snug max-w-[160px]">

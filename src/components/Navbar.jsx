@@ -13,24 +13,24 @@ export default function Navbar() {
           
           {/* Logo */}
           <div class="flex-shrink-0 flex items-center">
-            <a href="#" class="flex items-center gap-3 group">
+            <Link to="/" class="flex items-center gap-3 group">
               <img 
                 src={logoImg} 
                 alt="ANRIC Equipos Hidráulicos" 
                 class="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
               />
-            </a>
+            </Link>
           </div>
 
           {/* Menú Desktop */}
           <nav class="hidden md:flex items-center space-x-10">
             <Link to="/productos" className="hover:text-anric-red transition-colors">Productos</Link>
-            <a href="#nosotros" class="text-gray-200 hover:text-white font-medium text-base transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-anric-red hover:after:w-full after:transition-all">
+            <Link to="/nosotros" className="text-gray-200 hover:text-white font-medium text-base transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-anric-red hover:after:w-full after:transition-all">
               Nosotros
-            </a>
-            <a href="#contacto" class="text-gray-200 hover:text-white font-medium text-base transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-anric-red hover:after:w-full after:transition-all">
+            </Link>
+            <Link to="/contacto" className="text-gray-200 hover:text-white font-medium text-base transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-anric-red hover:after:w-full after:transition-all">
               Contacto
-            </a>
+            </Link>
           </nav>
 
           {/* Contacto directo y CTA */}
