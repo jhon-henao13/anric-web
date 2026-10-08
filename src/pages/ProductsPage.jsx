@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import AdvisorCTA from '../components/AdvisorCTA';
 
 export default function ProductsPage() {
   const [activeCategory, setActiveCategory] = useState('Todos');
@@ -123,7 +124,7 @@ export default function ProductsPage() {
   };
 
   return (
-    <div className="pt-28 pb-20 min-h-screen bg-black text-white relative">
+    <div className="pt-28 pb-20 min-h-screen bg-white/90 text-white relative">
       {/* Resplandor de fondo ambiental */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-anric-red/10 blur-[150px] pointer-events-none rounded-full"></div>
 
@@ -137,7 +138,7 @@ export default function ProductsPage() {
           <h1 className="font-anton text-5xl md:text-7xl uppercase text-anric-red tracking-wide leading-tight">
             EXPLORA NUESTROS <br className="hidden md:block"/> PRODUCTOS
           </h1>
-          <p className="text-gray-400 mt-4 text-lg max-w-2xl">
+          <p className="text-gray-700 mt-4 text-lg max-w-2xl">
             Soluciones de carga para cada nivel de exigencia. Calidad, resistencia y rendimiento industrial.
           </p>
         </motion.div>
@@ -156,7 +157,7 @@ export default function ProductsPage() {
                 className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 border ${
                   activeCategory === cat 
                     ? 'bg-anric-red border-anric-red text-white shadow-[0_0_15px_rgba(199,7,0,0.4)]' 
-                    : 'bg-transparent border-neutral-700 text-gray-400 hover:border-white hover:text-white'
+                    : 'bg-transparent border-neutral-700 text-gray-700 hover:border-white hover:text-white'
                 }`}
               >
                 {cat}
@@ -166,7 +167,7 @@ export default function ProductsPage() {
 
           {/* Ordenamiento (Dropdown) */}
           <div className="flex items-center gap-3 w-full lg:w-auto">
-            <span className="text-gray-400 text-sm whitespace-nowrap">Ordenar por:</span>
+            <span className="text-gray-700 text-sm whitespace-nowrap">Ordenar por:</span>
             <select 
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
@@ -376,6 +377,8 @@ export default function ProductsPage() {
             </p>
           </div>
         )}
+
+        <AdvisorCTA />
 
 
       </div>
