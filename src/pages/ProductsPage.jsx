@@ -1,12 +1,15 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ProductsPage() {
   const [activeCategory, setActiveCategory] = useState('Todos');
   const [sortBy, setSortBy] = useState('default');
+  const [currentPage, setCurrentPage] = useState(1); // Nuevo estado para paginación
+  const ITEMS_PER_PAGE = 9; // Límite de productos por página
 
-  // Datos de los productos proporcionados
+  // Datos de todos los productos (Page 1, 2 y 3)
   const products = [
+    // --- PAGE 1 ORIGINAL ---
     { id: 1, name: 'Patín Hidráulico Angosto y Estándar 3T', category: 'Patines Hidráulicos', price: 6200.00, tonnage: 3, image: 'https://anric.com.mx/wp-content/uploads/2022/08/recortes-anric_0014_Grupo-23-1-300x300.jpg' },
     { id: 2, name: 'Patín Hidráulico Angosto y Estándar Amarillo 3T', category: 'Patines Hidráulicos', price: 6200.00, tonnage: 3, image: 'https://anric.com.mx/wp-content/uploads/2022/08/recortes-anric_0015_Grupo-22-1-300x300.jpg' },
     { id: 3, name: 'Patín con freno', category: 'Patines Especiales', price: 10580.00, tonnage: 3, image: 'https://anric.com.mx/wp-content/uploads/2022/08/patinconfrenoanric-1-300x300.jpg' },
@@ -16,6 +19,20 @@ export default function ProductsPage() {
     { id: 7, name: 'Patín Hidráulico Angosto y Estándar 3T Poliuretano', category: 'Patines Hidráulicos', price: 6700.00, tonnage: 3, image: 'https://anric.com.mx/wp-content/uploads/2022/08/recortes-anric_0018_Grupo-19-1-300x300.jpg' },
     { id: 8, name: 'Patín Hidráulico Batman 3T', category: 'Patines Hidráulicos', price: 11310.00, tonnage: 3, image: 'https://anric.com.mx/wp-content/uploads/2022/08/recortes-anric_0028_Grupo-9-1-300x300.jpg' },
     { id: 9, name: 'Patín Hidráulico Batman Cama Baja 3T', category: 'Patines Cama Baja', price: 12090.00, tonnage: 3, image: 'https://anric.com.mx/wp-content/uploads/2022/08/recortes-anric_0027_Grupo-10-1-300x300.jpg' },
+    
+    // --- PAGE 2 NUEVOS ---
+    { id: 10, name: 'Patin Hidráulico Cama Baja 2T', category: 'Patines Cama Baja', price: 10310.00, tonnage: 2, image: 'https://anric.com.mx/wp-content/uploads/2022/08/recortes-anric_0021_Grupo-16-1-300x300.jpg' },
+    { id: 11, name: 'Patin Hidráulico Cama Extra Baja', category: 'Patines Cama Baja', price: 14740.00, tonnage: 1.5, image: 'https://anric.com.mx/wp-content/uploads/2022/08/recortes-anric_0024_Grupo-13-1-300x300.jpg' },
+    { id: 12, name: 'Patín Hidráulico con Impresora', category: 'Patines Especiales', price: 45175.00, tonnage: 2, image: 'https://anric.com.mx/wp-content/uploads/2022/08/recortes-anric_0023_Grupo-14-1-300x300.jpg' },
+    { id: 13, name: 'Patín Hidráulico Extra Angosto 3T', category: 'Patines Hidráulicos', price: 9840.00, tonnage: 3, image: 'https://anric.com.mx/wp-content/uploads/2022/08/Patin-extra-angosto-1-300x300.jpg' },
+    { id: 14, name: 'Patin Hidraulico Galvanizado 2.5T', category: 'Patines Especiales', price: 12390.00, tonnage: 2.5, image: 'https://anric.com.mx/wp-content/uploads/2022/08/recortes-anric_0017_Grupo-20-1-300x300.jpg' },
+    { id: 15, name: 'Patin Hidraulico Largo 2T', category: 'Patines Hidráulicos', price: 13090.00, tonnage: 2, image: 'https://anric.com.mx/wp-content/uploads/2022/08/PatinLargoanric-1-300x300.jpg' },
+    { id: 16, name: 'Patin Hidráulico Mini 2.5T', category: 'Patines Hidráulicos', price: 7615.00, tonnage: 2.5, image: 'https://anric.com.mx/wp-content/uploads/2022/08/recortes-anric_0034_Grupo-3-1-300x300.jpg' },
+    { id: 17, name: 'Patin Hidráulico Tijera 1.5T', category: 'Patines Especiales', price: 17400.00, tonnage: 1.5, image: 'https://anric.com.mx/wp-content/uploads/2022/08/recortes-anric_0016_Grupo-21-1-300x300.jpg' },
+    { id: 18, name: 'Patín Hidráulico Todo Terreno', category: 'Patines Especiales', price: 28665.00, tonnage: 2, image: 'https://anric.com.mx/wp-content/uploads/2022/08/recortes-anric_0036_Grupo-1-1-300x300.jpg' },
+    
+    // --- PAGE 3 NUEVOS ---
+    { id: 19, name: 'Patín Para Tambos', category: 'Patines Especiales', price: 16670.00, tonnage: 0.5, image: 'https://anric.com.mx/wp-content/uploads/2022/08/recortes-anric_0030_Grupo-7-1-300x300.jpg' }
   ];
 
   const categories = ['Todos', 'Patines Hidráulicos', 'Patines Alta Capacidad', 'Patines Especiales', 'Patines Cama Baja'];
@@ -32,6 +49,20 @@ export default function ProductsPage() {
       default: return result;
     }
   }, [activeCategory, sortBy]);
+
+
+  // Resetear a la página 1 si el usuario cambia el filtro o el orden
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [activeCategory, sortBy]);
+
+  // Cálculo de productos para la página actual
+  const totalPages = Math.ceil(filteredAndSortedProducts.length / ITEMS_PER_PAGE);
+  const currentProducts = filteredAndSortedProducts.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
 
   // Formateador de moneda
   const formatPrice = (price) => {
@@ -111,7 +142,7 @@ export default function ProductsPage() {
         {/* GRID DE PRODUCTOS */}
         <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <AnimatePresence>
-            {filteredAndSortedProducts.map((product) => (
+            {currentProducts.map((product) => (
               <motion.div
                 layout
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -162,8 +193,31 @@ export default function ProductsPage() {
                 </div>
               </motion.div>
             ))}
+            
           </AnimatePresence>
         </motion.div>
+
+        {/* CONTROLES DE PAGINACIÓN */}
+        {totalPages > 1 && (
+          <div className="flex justify-center mt-12 gap-3">
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index + 1}
+                onClick={() => {
+                  setCurrentPage(index + 1);
+                  window.scrollTo({ top: 400, behavior: 'smooth' }); // Opcional: Auto-scroll al inicio de la lista
+                }}
+                className={`w-12 h-12 rounded-full flex items-center justify-center font-bold transition-all duration-300 ${
+                  currentPage === index + 1
+                    ? 'bg-anric-red text-white shadow-[0_0_15px_rgba(199,7,0,0.5)] border border-anric-red'
+                    : 'bg-transparent text-gray-400 border border-neutral-700 hover:bg-neutral-800 hover:text-white'
+                }`}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
+        )}
 
         {filteredAndSortedProducts.length === 0 && (
           <div className="text-center py-20 text-gray-500">
