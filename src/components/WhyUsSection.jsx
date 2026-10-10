@@ -59,7 +59,7 @@ export default function WhyUsSection() {
   ];
 
   return (
-    <section id="que-nos-diferencia" className="relative py-20 bg-black text-white overflow-hidden select-none">
+    <section id="que-nos-diferencia" className="relative py-20 bg-white/90 text-white overflow-hidden select-none">
       
       {/* Luz ambiental decorativa roja en el fondo */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-64 bg-anric-red/10 blur-[140px] pointer-events-none rounded-full"></div>
@@ -74,7 +74,7 @@ export default function WhyUsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-8 sm:mb-12"
         >
-          <h2 className="font-anton text-4xl sm:text-5xl lg:text-6xl tracking-wide uppercase text-white leading-tight">
+          <h2 className="font-anton text-4xl sm:text-5xl lg:text-6xl tracking-wide uppercase text-black leading-tight">
             ¿QUÉ NOS DIFERENCIA?
           </h2>
           <div className="w-16 h-1 bg-anric-red mx-auto mt-4 rounded-full shadow-[0_0_12px_rgba(199,7,0,0.8)]"></div>
@@ -90,7 +90,7 @@ export default function WhyUsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -8 }}
-              className="relative bg-neutral-900/60 backdrop-blur-md border border-neutral-800/80 rounded-2xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-anric-red/80 hover:shadow-[0_10px_30px_rgba(199,7,0,0.2)] group"
+              className="relative bg-neutral-900/80 backdrop-blur-md border border-neutral-800/80 rounded-2xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:bg-black/90 hover:border-anric-red/80 hover:shadow-[0_10px_30px_rgba(199,7,0,0.2)] group"
             >
               {/* Contenedor del Icono con animación de pulso al hover */}
               <div className="w-16 h-16 rounded-full bg-neutral-950/80 border border-neutral-800 flex items-center justify-center mb-6 group-hover:border-anric-red/50 group-hover:scale-110 group-hover:bg-anric-red/10 transition-all duration-300">
@@ -103,7 +103,7 @@ export default function WhyUsSection() {
               </h3>
 
               {/* Descripción breve */}
-              <p className="text-xs sm:text-sm text-gray-400 font-normal leading-relaxed">
+              <p className="text-xs sm:text-sm text-gray-200 font-normal leading-relaxed">
                 {item.description}
               </p>
 
