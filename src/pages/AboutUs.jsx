@@ -7,6 +7,9 @@ import WhyUsSection from '../components/WhyUsSection';
 import WorkProcessSection from '../components/WorkProcessSection';
 import ClientsTrustSection from '../components/ClientsTrustSection';
 
+import aboutCtaImg from '../assets/about-cta.webp';
+
+
 export default function AboutUs() {
   const handleQuoteClick = () => {
     window.open("https://wa.me/525548619200?text=Hola,%20quisiera%20recibir%20asesoría%20sobre%20equipos%20hidráulicos", "_blank");
@@ -87,22 +90,27 @@ export default function AboutUs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative bg-gradient-to-r from-neutral-950 via-neutral-900 to-neutral-950 border border-neutral-800 rounded-3xl overflow-hidden p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-10 shadow-2xl"
+          className="relative bg-gradient-to-r from-neutral-950 via-neutral-900 to-neutral-950 border border-neutral-800/80 rounded-3xl overflow-hidden flex flex-col lg:flex-row items-stretch justify-between shadow-2xl group"
         >
+          {/* Luz de fondo ambiental */}
           <div className="absolute -right-20 -bottom-20 w-96 h-96 bg-anric-red/20 blur-[150px] pointer-events-none rounded-full" />
 
-          {/* Texto del CTA */}
-          <div className="max-w-xl space-y-6 z-10 text-center lg:text-left">
-            <h2 className="font-anton text-4xl sm:text-5xl lg:text-6xl uppercase tracking-wide leading-none text-white">
-              ¿LISTO PARA OPTIMIZAR <br />
-              <span className="text-anric-red">TU OPERACIÓN?</span>
-            </h2>
+          {/* Texto e Información del CTA */}
+          <div className="w-full lg:w-1/2 p-8 sm:p-12 lg:p-16 space-y-6 z-10 text-center lg:text-left flex flex-col justify-center">
+            <div className="space-y-1">
+              <h2 className="font-anton text-3xl sm:text-4xl lg:text-5xl uppercase tracking-wide !leading-[1.2] text-white">
+                ¿LISTO PARA OPTIMIZAR TU OPERACIÓN?
+              </h2>
+              <p className="font-anton text-3xl sm:text-4xl lg:text-5xl uppercase tracking-wide text-anric-red">
+                ESTAMOS PARA AYUDARTE
+              </p>
+            </div>
 
             <p className="text-gray-300 text-base font-light leading-relaxed">
               Contáctanos hoy mismo y recibe asesoría sin compromiso. Un especialista te ayudará a encontrar la solución ideal para tu negocio.
             </p>
 
-            <div>
+            <div className="pt-2">
               <motion.button
                 onClick={handleQuoteClick}
                 whileHover={{ scale: 1.04 }}
@@ -114,14 +122,19 @@ export default function AboutUs() {
             </div>
           </div>
 
-          {/* Imagen Ilustrativa Montacargas */}
-          <div className="z-10 w-full max-w-md lg:max-w-lg">
+          {/* Imagen Ilustrativa Montacargas con Asset Local */}
+          <div className="relative w-full lg:w-1/2 min-h-[300px] lg:min-h-full m-0 p-0 overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=800&auto=format&fit=crop" 
+              src={aboutCtaImg} 
               alt="Montacargas Industrial ANRIC" 
-              className="w-full h-auto object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.9)] rounded-2xl border border-neutral-800"
+              className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
             />
+            {/* Degradado lateral difuminado con tono gris intermedio del banner */}
+            <div className="absolute inset-y-0 left-0 w-32 sm:w-40 bg-gradient-to-r from-neutral-900 via-neutral-900/60 to-transparent hidden lg:block pointer-events-none"></div>
+            {/* Sombra interna superior/inferior opcional para integración total */}
+            <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-neutral-900/50 to-transparent hidden lg:block pointer-events-none"></div>
           </div>
+          
         </motion.div>
       </section>
 
