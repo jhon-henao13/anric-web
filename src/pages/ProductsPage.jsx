@@ -1,8 +1,11 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom'; 
+import { products, categories, WHATSAPP_NUMBER } from '../data/products';
 import AdvisorCTA from '../components/AdvisorCTA';
 
 export default function ProductsPage() {
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState('Todos');
   const [sortBy, setSortBy] = useState('default');
   const [activePage, setActivePage] = useState(1);
@@ -113,14 +116,13 @@ export default function ProductsPage() {
   };
 
   const handleCardClick = (id) => {
-    // Aquí iría la redirección a la ficha del producto, ej: navigate(`/producto/${id}`)
-    console.log(`Navegando a detalle del producto ${id}`);
+    navigate(`/producto/${id}`);
   };
 
   const handleQuoteClick = (e, productName) => {
-    e.stopPropagation(); // Evita que se dispare el click de la tarjeta
-    const message = `Hola, me interesa cotizar el equipo: ${productName}`;
-    window.open(`https://wa.me/525512345678?text=${encodeURIComponent(message)}`, '_blank');
+    e.stopPropagation();
+    const message = `Hola, me interesa cotizar el equipo: *${productName}*. ¿Podrían brindarme más información?`;
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (
