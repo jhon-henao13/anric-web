@@ -48,10 +48,10 @@ export default function ProductDetailPage() {
   };
 
   return (
-    <div className="pt-28 pb-20 min-h-screen bg-black text-white relative overflow-hidden">
+    <div className="pt-28 pb-20 min-h-screen bg-white text-neutral-900 relative overflow-hidden">
       {/* Resplandor de fondo */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-anric-red/10 blur-[180px] pointer-events-none rounded-full" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-anric-red/5 blur-[150px] pointer-events-none rounded-full" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-anric-red/5 blur-[180px] pointer-events-none    rounded-full" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-anric-red/5 blur-[150px] pointer-events-none    rounded-full" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
@@ -60,13 +60,13 @@ export default function ProductDetailPage() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="flex items-center gap-2 text-sm text-gray-500 mb-8"
+          className="flex items-center gap-2 text-sm text-neutral-400 mb-8"
         >
           <Link to="/productos" className="hover:text-anric-red transition-colors">Productos</Link>
-          <span className="text-neutral-700">/</span>
-          <span className="text-gray-400">{product.category}</span>
-          <span className="text-neutral-700">/</span>
-          <span className="text-white truncate max-w-[200px]">{product.name}</span>
+          <span className="text-neutral-300">/</span>
+          <span className="text-neutral-500">{product.category}</span>
+          <span className="text-neutral-300">/</span>
+          <span className="text-neutral-900 truncate max-w-[200px]">{product.name}</span>
         </motion.nav>
 
         {/* HERO: Imagen + Info */}
@@ -80,21 +80,22 @@ export default function ProductDetailPage() {
             className="relative"
           >
             <div className="sticky top-28">
-              <div className="relative bg-white rounded-3xl overflow-hidden border border-neutral-800 shadow-[0_0_60px_rgba(199,7,0,0.1)]">
+              
+              <div className="relative bg-[#f5f3ef] rounded-3xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)]">
                 {/* Etiqueta de tonelaje */}
-                <div className="absolute top-5 left-5 z-10 bg-black/85 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider border border-neutral-700">
+                <div className="absolute top-5 left-5 z-10 bg-white/90 backdrop-blur-md text-neutral-900 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider border border-neutral-200">
                   {product.tonnage} Toneladas
                 </div>
                 {/* Etiqueta de categoría */}
-                <div className="absolute top-5 right-5 z-10 bg-anric-red text-white text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider shadow-[0_0_20px_rgba(199,7,0,0.5)]">
+                <div className="absolute top-5 right-5 z-10 bg-anric-red text-white text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">
                   {product.category}
                 </div>
 
-                <div className="aspect-square p-12 flex items-center justify-center">
+                <div className="aspect-square p-2 flex items-center justify-center">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="max-h-full max-w-full object-contain mix-blend-multiply"
+                    className="max-h-full max-w-full object-contain"
                   />
                 </div>
               </div>
@@ -120,32 +121,32 @@ export default function ProductDetailPage() {
               {product.category}
             </span>
 
-            <h1 className="font-anton text-4xl md:text-5xl lg:text-6xl uppercase tracking-wide !leading-[1.1] text-white mb-6">
+            <h1 className="font-anton text-4xl md:text-5xl lg:text-6xl uppercase tracking-wide !leading-[1.1] text-neutral-900 mb-6">
               {product.name}
             </h1>
 
             {/* Precio */}
-            <div className="flex items-baseline gap-3 mb-6 pb-6 border-b border-neutral-800">
+            <div className="flex items-baseline gap-3 mb-6 pb-6 border-b border-neutral-200">
               <span className="text-4xl md:text-5xl font-light text-anric-red">
                 {formatPrice(product.price)}
               </span>
-              <span className="text-gray-500 text-sm">MXN + IVA</span>
+              <span className="text-neutral-400 text-sm">MXN + IVA</span>
             </div>
 
             {/* Descripción */}
-            <p className="text-gray-400 text-lg leading-relaxed mb-8">
+            <p className="text-neutral-600 text-lg leading-relaxed mb-8">
               {product.description}
             </p>
 
             {/* Highlights rápidos */}
             <div className="grid grid-cols-2 gap-4 mb-8">
-              <div className="bg-neutral-950 border border-neutral-800 rounded-2xl p-4">
-                <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Capacidad</p>
-                <p className="text-xl font-bold text-white">{product.tonnage} T</p>
+              <div className="bg-neutral-50 border border-neutral-200 rounded-2xl p-4">
+                <p className="text-xs text-neutral-400 uppercase tracking-wider mb-1">Capacidad</p>
+                <p className="text-xl font-bold text-neutral-900">{product.tonnage} T</p>
               </div>
-              <div className="bg-neutral-950 border border-neutral-800 rounded-2xl p-4">
-                <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Garantía</p>
-                <p className="text-xl font-bold text-white">1 año</p>
+              <div className="bg-neutral-50 border border-neutral-200 rounded-2xl p-4">
+                <p className="text-xs text-neutral-400 uppercase tracking-wider mb-1">Garantía</p>
+                <p className="text-xl font-bold text-neutral-900">1 año</p>
               </div>
             </div>
 
@@ -177,31 +178,35 @@ export default function ProductDetailPage() {
           className="mb-20"
         >
           <div className="flex items-center gap-4 mb-8">
-            <h2 className="font-anton text-3xl md:text-4xl uppercase tracking-wide text-white">
+
+            <h2 className="font-anton text-3xl md:text-4xl uppercase tracking-wide text-neutral-900">
               Aspectos <span className="text-anric-red">Técnicos</span>
             </h2>
-            <div className="flex-grow h-px bg-gradient-to-r from-neutral-800 to-transparent" />
+            <div className="flex-grow h-px bg-gradient-to-r from-neutral-200 to-transparent" />
+            
           </div>
 
-          <div className="bg-gradient-to-br from-neutral-950 to-black border border-neutral-800 rounded-3xl overflow-hidden">
+          <div className="bg-neutral-50/70 border border-neutral-200 rounded-3xl overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-2">
               {product.specs?.map((spec, i) => (
                 <div
                   key={i}
-                  className={`flex justify-between items-center px-6 py-5 border-b border-neutral-900 hover:bg-neutral-900/50 transition-colors ${
-                    i % 2 === 0 ? 'md:border-r md:border-neutral-900' : ''
+                  className={`flex justify-between items-center px-6 py-5 border-b border-neutral-200 hover:bg-white transition-colors ${
+                    i % 2 === 0 ? 'md:border-r md:border-neutral-200' : ''
                   }`}
                 >
-                  <span className="text-sm text-gray-500 uppercase tracking-wider font-medium">
+                  <span className="text-sm text-neutral-500 uppercase tracking-wider font-medium">
                     {spec.label}
                   </span>
-                  <span className="text-sm md:text-base font-semibold text-white text-right ml-4">
+                  <span className="text-sm md:text-base font-semibold text-neutral-900 text-right ml-4">
                     {spec.value}
                   </span>
                 </div>
               ))}
             </div>
           </div>
+
+          
         </motion.section>
 
         {/* OTROS PRODUCTOS (Related) */}
@@ -214,14 +219,14 @@ export default function ProductDetailPage() {
             className="mb-20"
           >
             <div className="flex items-center gap-4 mb-10">
-              <h2 className="font-anton text-3xl md:text-4xl uppercase tracking-wide text-white">
+
+              <h2 className="font-anton text-3xl md:text-4xl uppercase tracking-wide text-neutral-900">
                 Otros <span className="text-anric-red">Productos</span>
               </h2>
-              <div className="flex-grow h-px bg-gradient-to-r from-neutral-800 to-transparent" />
-              <Link
-                to="/productos"
-                className="hidden sm:flex items-center gap-2 text-sm text-gray-400 hover:text-anric-red transition-colors"
-              >
+              <div className="flex-grow h-px bg-gradient-to-r from-neutral-200 to-transparent" />
+              <Link to="/productos" className="hidden sm:flex items-center gap-2 text-sm text-neutral-500 hover:text-anric-red transition-colors">
+
+                
                 Ver todos
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -230,6 +235,8 @@ export default function ProductDetailPage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+
               {relatedProducts.map((rp, i) => (
                 <motion.div
                   key={rp.id}
@@ -238,36 +245,34 @@ export default function ProductDetailPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
                 >
+                  
                   <Link
                     to={`/producto/${rp.id}`}
-                    className="group block bg-neutral-950 border border-neutral-800 rounded-3xl overflow-hidden hover:border-anric-red transition-all duration-300 hover:shadow-[0_0_30px_rgba(199,7,0,0.2)] hover:-translate-y-1 h-full flex flex-col"
+                    className="group block"
                   >
-                    <div className="relative bg-white w-full h-48 p-5 flex items-center justify-center overflow-hidden">
+                    <div className="relative aspect-square rounded-2xl bg-[#f5f3ef] overflow-hidden mb-4">
                       <img
                         src={rp.image}
                         alt={rp.name}
                         loading="lazy"
-                        className="max-h-full max-w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-700"
+                        className="absolute inset-0 w-full h-full object-contain p-6 transition-transform duration-700 group-hover:scale-105"
                       />
-                      <div className="absolute top-3 left-3 bg-black/80 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
-                        {rp.tonnage} T
-                      </div>
                     </div>
-
-                    <div className="p-5 flex flex-col flex-grow justify-between bg-gradient-to-b from-neutral-900 to-black">
-                      <div>
-                        <span className="text-anric-red text-[10px] font-bold uppercase tracking-wider mb-1.5 block">
-                          {rp.category}
-                        </span>
-                        <h3 className="text-sm font-bold text-white mb-3 leading-tight group-hover:text-anric-red transition-colors line-clamp-2">
-                          {rp.name}
-                        </h3>
-                      </div>
-                      <p className="text-lg font-light text-gray-300">
+                    <div className="px-1">
+                      <p className="text-[10px] uppercase tracking-[0.15em] text-neutral-400 font-semibold mb-1.5">
+                        {rp.category}
+                      </p>
+                      <h3 className="text-sm font-medium text-neutral-900 leading-snug mb-1.5 line-clamp-2 group-hover:text-anric-red transition-colors">
+                        {rp.name}
+                      </h3>
+                      <p className="text-sm font-semibold text-neutral-900">
                         {formatPrice(rp.price)}
+                        <span className="text-neutral-400 font-normal text-xs ml-1.5">MXN</span>
                       </p>
                     </div>
                   </Link>
+
+
                 </motion.div>
               ))}
             </div>
@@ -278,11 +283,13 @@ export default function ProductDetailPage() {
                 className="inline-flex items-center gap-2 text-sm text-anric-red font-semibold"
               >
                 Ver todos los productos
+                
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </Link>
             </div>
+
           </motion.section>
         )}
 
