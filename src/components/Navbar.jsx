@@ -31,6 +31,11 @@ export default function Navbar() {
             <Link to="/contacto" className="text-gray-200 hover:text-white font-medium text-base transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-anric-red hover:after:w-full after:transition-all">
               Contacto
             </Link>
+
+            <Link to="/mantenimiento" className="hover:text-anric-red transition-colors">
+              Mantenimiento
+            </Link>
+
           </nav>
 
           {/* Contacto directo y CTA */}
@@ -84,6 +89,7 @@ export default function Navbar() {
             <a href="#productos" onClick={() => setMobileMenuOpen(false)} class="block text-gray-200 hover:text-white text-lg font-medium">Productos</a>
             <a href="#nosotros" onClick={() => setMobileMenuOpen(false)} class="block text-gray-200 hover:text-white text-lg font-medium">Nosotros</a>
             <a href="#contacto" onClick={() => setMobileMenuOpen(false)} class="block text-gray-200 hover:text-white text-lg font-medium">Contacto</a>
+            <a href="#mantenimiento" onClick={() => setMobileMenuOpen(false)} class="block text-gray-200 hover:text-white text-lg font-medium">Mantenimiento</a>
             <a href="mailto:ventas@anric.com.mx" class="block text-gray-400 text-sm py-1">ventas@anric.com.mx</a>
             <a 
               href="#cotizar" 
