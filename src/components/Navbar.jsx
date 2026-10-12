@@ -25,6 +25,11 @@ export default function Navbar() {
           {/* Menú Desktop */}
           <nav class="hidden md:flex items-center space-x-10">
             <Link to="/productos" className="hover:text-anric-red transition-colors">Productos</Link>
+
+            <Link to="/mantenimiento" className="hover:text-anric-red transition-colors">
+              Mantenimiento
+            </Link>
+
             <Link to="/nosotros" className="text-gray-200 hover:text-white font-medium text-base transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-anric-red hover:after:w-full after:transition-all">
               Nosotros
             </Link>
@@ -32,9 +37,6 @@ export default function Navbar() {
               Contacto
             </Link>
 
-            <Link to="/mantenimiento" className="hover:text-anric-red transition-colors">
-              Mantenimiento
-            </Link>
 
           </nav>
 
@@ -87,9 +89,9 @@ export default function Navbar() {
             class="md:hidden bg-black/95 backdrop-blur-xl border-b border-gray-800 px-4 pt-4 pb-6 space-y-4"
           >
             <a href="#productos" onClick={() => setMobileMenuOpen(false)} class="block text-gray-200 hover:text-white text-lg font-medium">Productos</a>
+            <a href="#mantenimiento" onClick={() => setMobileMenuOpen(false)} class="block text-gray-200 hover:text-white text-lg font-medium">Mantenimiento</a>
             <a href="#nosotros" onClick={() => setMobileMenuOpen(false)} class="block text-gray-200 hover:text-white text-lg font-medium">Nosotros</a>
             <a href="#contacto" onClick={() => setMobileMenuOpen(false)} class="block text-gray-200 hover:text-white text-lg font-medium">Contacto</a>
-            <a href="#mantenimiento" onClick={() => setMobileMenuOpen(false)} class="block text-gray-200 hover:text-white text-lg font-medium">Mantenimiento</a>
             <a href="mailto:ventas@anric.com.mx" class="block text-gray-400 text-sm py-1">ventas@anric.com.mx</a>
             <a 
               href="#cotizar" 
