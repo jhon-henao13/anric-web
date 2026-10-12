@@ -80,29 +80,63 @@ export default function Navbar() {
       </div>
 
       {/* Menú Desplegable Móvil */}
+      {/* Menú Desplegable Móvil */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            class="md:hidden bg-black/95 backdrop-blur-xl border-b border-gray-800 px-4 pt-4 pb-6 space-y-4"
+            className="md:hidden bg-black/95 backdrop-blur-xl border-b border-gray-800 px-4 pt-4 pb-6 space-y-4"
           >
-            <a href="#productos" onClick={() => setMobileMenuOpen(false)} class="block text-gray-200 hover:text-white text-lg font-medium">Productos</a>
-            <a href="#mantenimiento" onClick={() => setMobileMenuOpen(false)} class="block text-gray-200 hover:text-white text-lg font-medium">Mantenimiento</a>
-            <a href="#nosotros" onClick={() => setMobileMenuOpen(false)} class="block text-gray-200 hover:text-white text-lg font-medium">Nosotros</a>
-            <a href="#contacto" onClick={() => setMobileMenuOpen(false)} class="block text-gray-200 hover:text-white text-lg font-medium">Contacto</a>
-            <a href="mailto:ventas@anric.com.mx" class="block text-gray-400 text-sm py-1">ventas@anric.com.mx</a>
+            <Link 
+              to="/productos" 
+              onClick={() => setMobileMenuOpen(false)} 
+              className="block text-gray-200 hover:text-anric-red text-lg font-medium transition-colors"
+            >
+              Productos
+            </Link>
+            <Link 
+              to="/mantenimiento" 
+              onClick={() => setMobileMenuOpen(false)} 
+              className="block text-gray-200 hover:text-anric-red text-lg font-medium transition-colors"
+            >
+              Mantenimiento
+            </Link>
+            <Link 
+              to="/nosotros" 
+              onClick={() => setMobileMenuOpen(false)} 
+              className="block text-gray-200 hover:text-white text-lg font-medium transition-colors"
+            >
+              Nosotros
+            </Link>
+            <Link 
+              to="/contacto" 
+              onClick={() => setMobileMenuOpen(false)} 
+              className="block text-gray-200 hover:text-white text-lg font-medium transition-colors"
+            >
+              Contacto
+            </Link>
+            
+            <a 
+              href="mailto:ventas@anric.com.mx" 
+              className="block text-gray-400 text-sm py-1 underline decoration-gray-500 underline-offset-4"
+            >
+              ventas@anric.com.mx
+            </a>
+
             <a 
               href="#cotizar" 
               onClick={() => setMobileMenuOpen(false)} 
-              class="inline-block w-full text-center bg-anric-red hover:bg-anric-red-hover text-white font-bold py-3 rounded-md shadow-md"
+              className="inline-block w-full text-center bg-anric-red hover:bg-anric-red-hover text-white font-bold py-3 rounded-md shadow-md transition-all"
             >
               Cotizar Ahora →
             </a>
           </motion.div>
         )}
       </AnimatePresence>
+
+      
     </header>
   );
 }
