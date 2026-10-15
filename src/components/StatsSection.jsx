@@ -16,7 +16,7 @@ export default function StatsSection() {
       )
     },
     {
-      value: "+500",
+      value: "+10,000",
       title: "EQUIPOS ENTREGADOS",
       icon: (
         <svg class="w-10 h-10 stroke-anric-red fill-none" viewBox="0 0 24 24" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -29,7 +29,7 @@ export default function StatsSection() {
       )
     },
     {
-      value: "+300",
+      value: "+3,000",
       title: "CLIENTES SATISFECHOS",
       icon: (
         <svg class="w-10 h-10 stroke-anric-red fill-none" viewBox="0 0 24 24" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
