@@ -167,7 +167,7 @@ export default function CategoriesSection() {
                         
                         {/* Indicador CTA Redirigir */}
                         <div class="pt-2 flex items-center text-anric-red font-bold text-xs uppercase tracking-wider group">
-                          <span>Ver catálogo</span>
+                          <span>Ver todos</span>
                           <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                           </svg>
