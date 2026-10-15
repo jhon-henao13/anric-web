@@ -9,10 +9,17 @@
 }
 
 /* Efectos custom de brillo/glow */
+/* Reemplazar o complementar en index.css */
 .glow-red {
-  box-shadow: 0 0 25px rgba(214, 28, 28, 0.4);
+  box-shadow: 0 0 20px rgba(199, 7, 0, 0.35);
+}
+
+.glow-red:hover {
+  box-shadow: 0 0 30px rgba(199, 7, 0, 0.55);
 }
 
 .glow-whatsapp {
   box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
 }
+
+
