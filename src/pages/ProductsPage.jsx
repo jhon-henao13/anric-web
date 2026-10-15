@@ -52,43 +52,58 @@ export default function ProductsPage() {
         </motion.div>
 
         {/* FILTROS — estilo limpio con pills outline */}
+        {/* FILTROS — Horizontal Scroll Premium en Móvil & Clean Wrap en Desktop */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-5 mb-10"
+          className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4 mb-10 pb-2 border-b border-neutral-100"
         >
-          {/* Categories */}
-          <div className="flex flex-wrap gap-2">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border ${
-                  activeCategory === cat
-                    ? 'bg-neutral-900 border-neutral-900 text-white'
-                    : 'bg-white border-neutral-200 text-neutral-600 hover:border-neutral-900 hover:text-neutral-900'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+          {/* Categorías con Scroll Horizontal Flotante */}
+          <div className="relative w-full sm:w-auto overflow-x-auto no-scrollbar py-1 -mx-4 px-4 sm:mx-0 sm:px-0">
+            <div className="flex items-center gap-2.5 min-w-max">
+              {categories.map((cat) => {
+                const isActive = activeCategory === cat;
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveCategory(cat)}
+                    className={`px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 whitespace-nowrap border ${
+                      isActive
+                        ? 'bg-neutral-900 border-neutral-900 text-white shadow-md shadow-neutral-900/10 scale-[1.02]'
+                        : 'bg-neutral-50/60 border-neutral-200/80 text-neutral-600 hover:border-neutral-900 hover:text-neutral-900 hover:bg-white'
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
-          {/* Sort */}
-          <div className="flex items-center gap-3">
-            <span className="text-neutral-500 text-sm whitespace-nowrap hidden sm:inline">Ordenar por:</span>
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              className="bg-white border border-neutral-200 text-neutral-900 text-sm rounded-full focus:ring-2 focus:ring-anric-red/30 focus:border-anric-red px-5 py-2.5 pr-10 outline-none cursor-pointer"
-            >
-              <option value="default">Recomendados</option>
-              <option value="price-asc">Precio: Menor a Mayor</option>
-              <option value="price-desc">Precio: Mayor a Menor</option>
-              <option value="ton-desc">Capacidad: Mayor a Menor</option>
-              <option value="ton-asc">Capacidad: Menor a Mayor</option>
-            </select>
+          {/* Selector de Ordenamiento Responsivo */}
+          <div className="flex items-center justify-between sm:justify-end gap-3 pt-2 sm:pt-0 border-t sm:border-t-0 border-neutral-100 shrink-0">
+            <span className="text-neutral-400 text-xs font-semibold uppercase tracking-wider whitespace-nowrap">
+              Ordenar:
+            </span>
+            <div className="relative w-full sm:w-auto">
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="w-full sm:w-auto bg-neutral-50/80 hover:bg-neutral-100/80 border border-neutral-200/80 text-neutral-900 text-xs sm:text-sm font-medium rounded-full focus:ring-2 focus:ring-anric-red/20 focus:border-anric-red px-4 py-2.5 pr-9 outline-none cursor-pointer transition-all duration-200 appearance-none"
+              >
+                <option value="default">Recomendados</option>
+                <option value="price-asc">Precio: Menor a Mayor</option>
+                <option value="price-desc">Precio: Mayor a Menor</option>
+                <option value="ton-desc">Capacidad: Mayor a Menor</option>
+                <option value="ton-asc">Capacidad: Menor a Mayor</option>
+              </select>
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-neutral-500">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
           </div>
         </motion.div>
 
