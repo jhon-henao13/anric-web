@@ -9,7 +9,7 @@ import imgTijera15t from '../assets/equipos/patin-hidraulico/tijera.png';
 
 export default function BestSellersSection() {
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const whatsappNumber = "525512345678"; // Reemplazar con tu número real de WhatsApp
+  const whatsappNumber = "5215548619200"; // Reemplazar con tu número real de WhatsApp
 
   const products = [
     {

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export default function AdvisorCTA() {
   const handleAdvisorClick = () => {
     const message = "Hola, me gustaría recibir asesoría personalizada para elegir el equipo hidráulico adecuado para mi operación.";
-    window.open(`https://wa.me/525512345678?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/5215548619200?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (

@@ -4,7 +4,7 @@ import twoSectionImg from '../assets/twosection.png';
 
 export default function AdviceSection() {
   // Número de WhatsApp configurado para la acción rápida
-  const whatsappNumber = "525512345678"; 
+  const whatsappNumber = "5215548619200";
   const message = encodeURIComponent("¡Hola ANRIC! Necesito asesoría para saber qué equipo necesita mi operación.");
 
   const features = [
