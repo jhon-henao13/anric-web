@@ -15,8 +15,8 @@ export default function Home() {
       <StatsSection />
       <CategoriesSection />
       <BestSellersSection />
-      <WhyUsSection />
       <InstagramSection />
+      <WhyUsSection />
     </>
   );
 }
