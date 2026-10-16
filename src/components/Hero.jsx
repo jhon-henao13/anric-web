@@ -68,11 +68,16 @@ export default function Hero() {
             <motion.a
               whileHover={{ scale: 1.04, backgroundColor: 'rgba(255, 255, 255, 0.15)' }}
               whileTap={{ scale: 0.96 }}
-              href="#catalogo"
+              href="/catalogo-anric.pdf"
+              download="Catalogo-ANRIC.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               class="bg-black/40 hover:bg-white/10 text-white font-bold text-base px-7 py-3.5 rounded-md border-2 border-white/80 backdrop-blur-md transition-all flex items-center justify-center gap-2 shadow-lg"
             >
               Descargar Catálogo
             </motion.a>
+
+            
           </motion.div>
 
         </div>
