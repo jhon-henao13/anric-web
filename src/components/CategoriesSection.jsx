@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 import patinHidraulicoEraser from '../assets/equipos/patin-hidraulico-eraser.png';
 import patinHidraulicoBg from '../assets/equipos/patin-hidraulico-bg.png';
@@ -18,6 +19,7 @@ import mesaElevacionBg from '../assets/equipos/mesa-elevacion-bg.png';
 
 export default function CategoriesSection() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const navigate = useNavigate();
 
   const categories = [
     {
@@ -27,7 +29,7 @@ export default function CategoriesSection() {
       imageEraser: patinHidraulicoEraser,
       imageBg: patinHidraulicoBg,
       bgColor: "bg-[#e3c2c0]", // Rosa/rojo ceniza pastel
-      categoryUrl: "#patines-hidraulicos",
+      categoryUrl: "/productos?categoria=Patines%20Hidr%C3%A1ulicos",
     },
     {
       id: "patines-electricos",
@@ -36,7 +38,7 @@ export default function CategoriesSection() {
       imageEraser: patinElectricoEraser,
       imageBg: patinElectricoBg,
       bgColor: "bg-[#d4d6d8]", // Gris plata neutro
-      categoryUrl: "#patines-electricos",
+      categoryUrl: "/productos?categoria=Patines%20El%C3%A9ctricos",
     },
     {
       id: "apiladores",
@@ -45,7 +47,7 @@ export default function CategoriesSection() {
       imageEraser: apiladorEraser,
       imageBg: apiladorBg,
       bgColor: "bg-[#ffffff]", // Blanco puro
-      categoryUrl: "#apiladores",
+      categoryUrl: "/productos?categoria=Apiladores", 
     },
     {
       id: "montacargas",
@@ -54,7 +56,7 @@ export default function CategoriesSection() {
       imageEraser: montacargasEraser,
       imageBg: montacargasBg,
       bgColor: "bg-[#decbc0]", // Beige / Terracota suave
-      categoryUrl: "#montacargas",
+      categoryUrl: "/productos?categoria=Montacargas",
     },
     {
       id: "mesas-elevacion",
@@ -63,13 +65,14 @@ export default function CategoriesSection() {
       imageEraser: mesaElevacionEraser,
       imageBg: mesaElevacionBg,
       bgColor: "bg-[#cccccc]", // Gris medio
-      categoryUrl: "#mesas-elevacion",
+      categoryUrl: "/productos?categoria=Mesas%20de%20Elevación",
     },
   ];
 
+  
+
   const handleCategoryClick = (url) => {
-    // Redirección al clic hacia la categoría correspondiente
-    window.location.href = url;
+    navigate(url);   // ⬅️ React Router, sin recarga dura
   };
 
   return (

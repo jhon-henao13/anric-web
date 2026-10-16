@@ -19,6 +19,15 @@ import imgPatinTijera15t   from '../assets/equipos/products/patin-h-tijera1-5t.j
 import imgPatinTodoTerreno from '../assets/equipos/products/patin-h-todo-terreno.jpg';
 import imgPatinTambos      from '../assets/equipos/products/patin-tambos.jpg';
 
+import imgPatinElectrico       from '../assets/equipos/products/patines-electricos/patin-electrico.jpg';
+import imgPatinTijeraElectrico from '../assets/equipos/products/patines-electricos/patin-tijera-electrico.jpg';
+
+import imgApiladorAncho160     from '../assets/equipos/products/apiladores/apilador-ancho-1-60.jpg';
+import imgApiladorAngosto16    from '../assets/equipos/products/apiladores/apilador-angosto-1-6.jpg';
+import imgApiladorAngosto3m    from '../assets/equipos/products/apiladores/apilador-angosto-3m.jpg';
+import imgApiladorLigero       from '../assets/equipos/products/apiladores/apilador-ligero.jpg';
+import imgApiladorAncho3m      from '../assets/equipos/products/apiladores/apilador-ancho-3m.jpg';
+
 export const products = [
   {
     id: 1, page: 1, name: 'Angosto y Estándar 3T Patín Hidráulico',
@@ -302,9 +311,188 @@ export const products = [
       { label: 'Rodamientos', value: 'Nylon reforzado' },
       { label: 'Bomba', value: 'Hidráulica manual' }
     ]
-  }
+  },
+
+
+    // ==================== PATINES ELÉCTRICOS ====================
+  {
+    id: 20, page: 4, name: 'Patín Eléctrico 1.5T',
+    category: 'Patines Eléctricos', price: 167655.00, tonnage: 1.5, image: imgPatinElectrico,
+    description: 'Cargador de batería con regulador de corriente. Timón fácil y cómodo de usar, control de avance y reversa. Plataforma plegable para mayor confort. Cuenta con dos botones de emergencia: uno desconecta inmediatamente la alimentación y aplica el freno, el otro invierte la dirección de desplazamiento para impedir que un operador quede atrapado. Perfil bajo de 7.5 cm (altura mínima).',
+    specs: [
+      { label: 'Modelo Red Power', value: 'Patín Eléctrico' },
+      { label: 'Variante', value: 'Eléctrico 1.5 T' },
+      { label: 'Capacidad', value: '1,500 kg' },
+      { label: 'Altura de elevación total', value: '20 cm' },
+      { label: 'Centro de carga Q', value: '60 cm' },
+      { label: 'Dimensiones de horquillas L', value: '1.20 × 0.16 × 0.5 m' },
+      { label: 'Longitud total L2 / L3', value: '1.94 / 2.28 m' },
+      { label: 'Ancho B', value: '72 cm' },
+      { label: 'Ancho total de uñas B1', value: '60 cm – 26½"' },
+      { label: 'Batería', value: '2V × 12 / 210 AH' },
+      { label: 'Cargador de batería', value: 'DC24V / 40A' },
+      { label: 'Peso del equipo', value: '540 kg' }
+    ]
+  },
+  {
+    id: 21, page: 4, name: 'Patín Eléctrico 2T',
+    category: 'Patines Eléctricos', price: 167655.00, tonnage: 2, image: imgPatinElectrico,
+    description: 'Cargador de batería con regulador de corriente. Timón fácil y cómodo de usar, control de avance y reversa. Plataforma plegable para mayor confort. Cuenta con dos botones de emergencia: uno desconecta inmediatamente la alimentación y aplica el freno, el otro invierte la dirección de desplazamiento para impedir que un operador quede atrapado. Perfil bajo de 7.5 cm (altura mínima).',
+    specs: [
+      { label: 'Modelo Red Power', value: 'Patín Eléctrico' },
+      { label: 'Variante', value: 'Eléctrico 2 T' },
+      { label: 'Capacidad', value: '2,000 kg' },
+      { label: 'Altura de elevación total', value: '20 cm' },
+      { label: 'Centro de carga Q', value: '60 cm' },
+      { label: 'Dimensiones de horquillas L', value: '1.20 × 0.16 × 0.5 m' },
+      { label: 'Longitud total L2 / L3', value: '1.94 / 2.28 m' },
+      { label: 'Ancho B', value: '72 cm' },
+      { label: 'Ancho total de uñas B1', value: '60 cm – 26½"' },
+      { label: 'Batería', value: '2V × 12 / 210 AH' },
+      { label: 'Cargador de batería', value: 'DC24V / 40A' },
+      { label: 'Peso del equipo', value: '600 kg' }
+    ]
+  },
+  {
+    id: 22, page: 4, name: 'Patín Eléctrico 2.5T',
+    category: 'Patines Eléctricos', price: 167655.00, tonnage: 2.5, image: imgPatinElectrico,
+    description: 'Cargador de batería con regulador de corriente. Timón fácil y cómodo de usar, control de avance y reversa. Plataforma plegable para mayor confort. Cuenta con dos botones de emergencia: uno desconecta inmediatamente la alimentación y aplica el freno, el otro invierte la dirección de desplazamiento para impedir que un operador quede atrapado. Perfil bajo de 7.5 cm (altura mínima).',
+    specs: [
+      { label: 'Modelo Red Power', value: 'Patín Eléctrico' },
+      { label: 'Variante', value: 'Eléctrico 2.5 T' },
+      { label: 'Capacidad', value: '2,500 kg' },
+      { label: 'Altura de elevación total', value: '20 cm' },
+      { label: 'Centro de carga Q', value: '60 cm' },
+      { label: 'Dimensiones de horquillas L', value: '1.20 × 0.16 × 0.5 m' },
+      { label: 'Longitud total L2 / L3', value: '1.94 / 2.28 m' },
+      { label: 'Ancho B', value: '72 cm' },
+      { label: 'Ancho total de uñas B1', value: '60 cm – 26½"' },
+      { label: 'Batería', value: '2V × 12 / 210 AH' },
+      { label: 'Cargador de batería', value: 'DC24V / 40A' },
+      { label: 'Peso del equipo', value: '600 kg' }
+    ]
+  },
+  {
+    id: 23, page: 4, name: 'Patín de Tijera Eléctrico',
+    category: 'Patines Eléctricos', price: 47580.00, tonnage: 1, image: imgPatinTijeraElectrico,
+    description: 'Los estabilizadores ajustables se extienden al suelo automáticamente cuando las horquillas alcanzan una altura de 420 mm para garantizar estabilidad máxima y frenado óptimo. El mango vuelve automáticamente a su posición vertical cuando se suelta.',
+    specs: [
+      { label: 'Patín Tijera Eléctrico', value: 'Estándar / Angosto' },
+      { label: 'Capacidad', value: '1,000 kg' },
+      { label: 'Altura mínima', value: '86 mm' },
+      { label: 'Altura máxima', value: '800 mm' },
+      { label: 'Ancho de horquilla', value: '620 mm' },
+      { label: 'Longitud de horquilla', value: '1,140 / 1,500 mm' },
+      { label: 'Voltaje entrada/salida de carga', value: '220-240 / 12 V' },
+      { label: 'Voltaje de batería', value: '12 V / 63 A·h' },
+      { label: 'Peso neto', value: '140 / 165 kg' },
+      { label: 'Tamaño del embalaje', value: '210 × 50 × 71 cm' }
+    ]
+  },
+
+  // ==================== APILADORES ====================
+  {
+    id: 24, page: 5, name: 'Apilador Ancho 1.60',
+    category: 'Apiladores', price: 31990.00, tonnage: 2, image: imgApiladorAncho160,
+    description: 'Diseñados con patas estabilizadoras para mayor seguridad. Permite que el apilador sea usado para introducir la tarima entre estabilizadores de la base. Fácil de maniobrar, con frenado de seguridad. La ayuda económica para el trabajo móvil. Compacto y ahorro de espacio de almacenamiento.',
+    specs: [
+      { label: 'Modelo Red Power', value: 'CTY-EW' },
+      { label: 'Tipo', value: 'Apilador Extra Ancho' },
+      { label: 'Aplicación', value: 'Tarima Cerrada / Tarima Abierta' },
+      { label: 'Capacidad', value: '2,000 kg / 1,500 kg' },
+      { label: 'Altura máxima de elevación (A)', value: '1.60 m / 3 m' },
+      { label: 'Altura de piso a estructura (D)', value: '2.8 m' },
+      { label: 'Altura de piso a las uñas (G)', value: '9 cm' },
+      { label: 'Largo de uñas (E)', value: '90 cm' },
+      { label: 'Largo total del equipo (B)', value: '1.47 m' },
+      { label: 'Ancho ajustable de las uñas (J)', value: '30 – 120 cm' },
+      { label: 'Ancho de las patas estabilizadoras (M)', value: '1.40 m' },
+      { label: 'Ancho del equipo (C)', value: '1.40 m' },
+      { label: 'Peso del equipo', value: '220 kg / 250 kg' }
+    ]
+  },
+  {
+    id: 25, page: 5, name: 'Apilador Angosto 1.6',
+    category: 'Apiladores', price: 28900.00, tonnage: 2, image: imgApiladorAngosto16,
+    description: 'El apilador hidráulico manual proporciona un manejo rentable tanto para la carga como para las áreas de producción. El manejo es muy sencillo y no se requiere experiencia. Su mantenimiento es fácil y de bajo costo.',
+    specs: [
+      { label: 'Modelo Red Power', value: 'CTY-D' },
+      { label: 'Tipo', value: 'Apilador Angosto' },
+      { label: 'Aplicación', value: 'Para tarima abierta' },
+      { label: 'Capacidad', value: '2,000 kg' },
+      { label: 'Altura máxima de elevación (A)', value: '1.60 m' },
+      { label: 'Altura de piso a estructura (D)', value: '2.05 m' },
+      { label: 'Altura de piso a las uñas (G)', value: '8.5 cm' },
+      { label: 'Largo de uñas (E)', value: '90 cm' },
+      { label: 'Largo total del equipo (B)', value: '1.48 m' },
+      { label: 'Ancho ajustable de las uñas (J)', value: '24 – 68 cm' },
+      { label: 'Ancho de las patas estabilizadoras (M)', value: '69 cm' },
+      { label: 'Ancho del equipo (C)', value: '74 cm' },
+      { label: 'Peso del equipo', value: '240 kg' }
+    ]
+  },
+  {
+    id: 26, page: 5, name: 'Apilador Angosto 3M',
+    category: 'Apiladores', price: 39370.00, tonnage: 2, image: imgApiladorAngosto3m,
+    description: 'Para trabajo pesado, fabricado en acero en forma de C para su resistencia y rigidez con horquillas forjadas. Circuito integrado y acabado de pintura resistente a la corrosión. Horquillas ajustables para diferentes tamaños de carga. Dirección ligera y fácil con freno de pie. Una solución económica para levantar y mover.',
+    specs: [
+      { label: 'Modelo Red Power', value: 'CTY-EH' },
+      { label: 'Tipo', value: 'Apilador Manual a 3 m' },
+      { label: 'Capacidad', value: '2,000 kg' },
+      { label: 'Altura máxima de elevación (A)', value: '3 m' },
+      { label: 'Altura baja de horquillas (D)', value: '9 cm / 90 mm' },
+      { label: 'Longitud del tenedor (E)', value: '90 cm / 900 mm' },
+      { label: 'Tenedor ajustable (J)', value: '34/75 cm / 340/750 mm' },
+      { label: 'Ancho exterior patas delanteras (M)', value: '69 cm / 690 mm' },
+      { label: 'Rueda delantera', value: '3" × 2.5" / 75 × 70 mm' },
+      { label: 'Rueda trasera', value: '7" × 2" / 180 × 50 mm' },
+      { label: 'Medidas del equipo (D×C×B)', value: '2.15 × 0.785 × 1.47 m' },
+      { label: 'Peso del equipo', value: '280 kg' }
+    ]
+  },
+  {
+    id: 27, page: 5, name: 'Apilador Ligero',
+    category: 'Apiladores', price: 14280.00, tonnage: 0.4, image: imgApiladorLigero,
+    description: 'Fácil de transportar. Práctico para carga y descarga ligera.',
+    specs: [
+      { label: 'Modelo Red Power', value: 'CTY-EW' },
+      { label: 'Tipo', value: 'Apilador Ligero' },
+      { label: 'Capacidad', value: '400 kg' },
+      { label: 'Ancho', value: '550 mm' },
+      { label: 'Altura de elevación', value: '1.42 m' }
+    ]
+  },
+  {
+    id: 28, page: 5, name: 'Apilador Ancho a 3M',
+    category: 'Apiladores', price: 42790.00, tonnage: 2, image: imgApiladorAncho3m,
+    description: 'Diseñados con patas estabilizadoras para mayor seguridad. Permite que el apilador sea usado para introducir la tarima entre estabilizadores de la base. Fácil de maniobrar, con frenado de seguridad. La ayuda económica para el trabajo móvil. Compacto y ahorro de espacio de almacenamiento.',
+    specs: [
+      { label: 'Tipo', value: 'Apilador Extra Ancho' },
+      { label: 'Aplicación', value: 'Tarima Abierta' },
+      { label: 'Capacidad', value: '2,000 kg' },
+      { label: 'Altura máxima de elevación (A)', value: '3 m' },
+      { label: 'Altura de piso a estructura (D)', value: '2.8 m' },
+      { label: 'Altura de piso a las uñas (G)', value: '9 cm' },
+      { label: 'Largo de uñas (E)', value: '90 cm' },
+      { label: 'Largo total del equipo (B)', value: '1.47 m' },
+      { label: 'Ancho ajustable de las uñas (J)', value: '30 – 120 cm' },
+      { label: 'Ancho de las patas estabilizadoras (M)', value: '1.40 m' },
+      { label: 'Ancho del equipo (C)', value: '1.40 m' },
+      { label: 'Peso del equipo', value: '250 kg' }
+    ]
+  },
+
+
 ];
 
-export const categories = ['Todos', 'Patines Hidráulicos', 'Patines Alta Capacidad', 'Patines Especiales', 'Patines Cama Baja'];
+export const categories = [
+  'Todos',
+  'Patines Hidráulicos',
+  'Patines Alta Capacidad',
+  'Patines Especiales',
+  'Patines Cama Baja',
+  'Patines Eléctricos',
+  'Apiladores'
+];
 
 export const WHATSAPP_NUMBER = '525548619200';

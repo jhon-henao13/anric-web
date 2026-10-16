@@ -1,12 +1,27 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { products, categories, WHATSAPP_NUMBER } from '../data/products';
 import AdvisorCTA from '../components/AdvisorCTA';
 
 export default function ProductsPage() {
-  const [activeCategory, setActiveCategory] = useState('Todos');
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Categoría inicial leída desde la URL (?categoria=XXX)
+  const initialCategory = useMemo(() => {
+    const cat = searchParams.get('categoria');
+    return cat && categories.includes(cat) ? cat : 'Todos';
+  }, [searchParams]);
+
+  const [activeCategory, setActiveCategory] = useState(initialCategory);
   const [sortBy, setSortBy] = useState('default');
+
+  // Sincronizar si la URL cambia después (ej. clic en otra categoría desde Home)
+  useEffect(() => {
+    setActiveCategory(initialCategory);
+  }, [initialCategory]);
+
+  
 
   const filteredAndSortedProducts = useMemo(() => {
     let result = products.filter(
@@ -31,6 +46,19 @@ export default function ProductsPage() {
     const message = `Hola, me interesa cotizar el equipo: *${productName}*. ¿Podrían brindarme más información?`;
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
+
+
+  const handleCategoryChange = (cat) => {
+    setActiveCategory(cat);
+    // Mantener la URL sincronizada para poder compartir enlaces
+    if (cat === 'Todos') {
+      searchParams.delete('categoria');
+    } else {
+      searchParams.set('categoria', cat);
+    }
+    setSearchParams(searchParams, { replace: true });
+  };
+
 
   return (
     <div className="pt-28 pb-20 min-h-screen bg-white text-neutral-900 relative">
@@ -65,9 +93,11 @@ export default function ProductsPage() {
               {categories.map((cat) => {
                 const isActive = activeCategory === cat;
                 return (
+                  
                   <button
                     key={cat}
-                    onClick={() => setActiveCategory(cat)}
+                    onClick={() => handleCategoryChange(cat)}
+
                     className={`px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 whitespace-nowrap border ${
                       isActive
                         ? 'bg-neutral-900 border-neutral-900 text-white shadow-md shadow-neutral-900/10 scale-[1.02]'
