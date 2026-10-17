@@ -611,4 +611,4 @@ export const categories = [
   'Mesas de Elevación'
 ];
 
-export const WHATSAPP_NUMBER = '525548619200';
+export const WHATSAPP_NUMBER = '525542900168';

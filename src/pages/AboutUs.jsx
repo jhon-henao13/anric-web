@@ -12,7 +12,7 @@ import aboutCtaImg from '../assets/about-cta.webp';
 
 export default function AboutUs() {
   const handleQuoteClick = () => {
-    window.open("https://wa.me/525548619200?text=Hola,%20quisiera%20recibir%20asesoría%20sobre%20equipos%20hidráulicos", "_blank");
+    window.open("https://wa.me/525542900168?text=Hola,%20quisiera%20recibir%20asesoría%20sobre%20equipos%20hidráulicos", "_blank");
   };
 
   return (
