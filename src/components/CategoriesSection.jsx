@@ -65,7 +65,7 @@ export default function CategoriesSection() {
       imageEraser: mesaElevacionEraser,
       imageBg: mesaElevacionBg,
       bgColor: "bg-[#cccccc]", // Gris medio
-      categoryUrl: "/productos?categoria=Mesas%20de%20Elevación",
+      categoryUrl: "/productos?categoria=Mesas%20de%20Elevaci%C3%B3n",
     },
   ];
 
@@ -117,7 +117,7 @@ export default function CategoriesSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={`relative cursor-pointer transition-all duration-500 ease-out flex flex-col items-center ${
-                  isBlurred ? 'blur-[3px] opacity-30 scale-95' : 'opacity-100 scale-100'
+                  isBlurred ? 'blur-[2px] opacity-30 scale-95' : 'opacity-100 scale-100'
                 }`}
               >
                 {/* TARJETA DINÁMICA DE CATEGORÍA */}

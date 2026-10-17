@@ -28,6 +28,16 @@ import imgApiladorAngosto3m    from '../assets/equipos/products/apiladores/apila
 import imgApiladorLigero       from '../assets/equipos/products/apiladores/apilador-ligero.jpg';
 import imgApiladorAncho3m      from '../assets/equipos/products/apiladores/apilador-ancho-3m.jpg';
 
+// Montacargas
+import imgMontacargasCombustion from '../assets/equipos/products/montacargas/montacargas-combustion.jpg';
+import imgMontacargasElectrico  from '../assets/equipos/products/montacargas/montacargas-electrico.jpg';
+
+// Mesas de elevación
+import imgMesaElevacion1T       from '../assets/equipos/products/mesas-elevacion/mesa-elevacion-1t.jpg';
+import imgMesaElevacion350      from '../assets/equipos/products/mesas-elevacion/mesa-elevacion-350kg.jpg';
+import imgMesaElectrica350      from '../assets/equipos/products/mesas-elevacion/mesa-electrica-350kg.jpg';
+import imgMesaElectrica800      from '../assets/equipos/products/mesas-elevacion/mesa-electrica-800kg.jpg';
+
 export const products = [
   {
     id: 1, page: 1, name: 'Angosto y Estándar 3T Patín Hidráulico',
@@ -483,6 +493,110 @@ export const products = [
   },
 
 
+    // ==================== MONTACARGAS ====================
+  {
+    id: 29, page: 6, name: 'Montacargas de Combustión Gas / Gasolina',
+    category: 'Montacargas', price: 586140.00, tonnage: 3, image: imgMontacargasCombustion,
+    description: 'Sistema de transmisión de potencia, guardia y marco tipo camión con estructura de doble suspensión, lo cual debilita la vibración transferida de ruedas. Sistema de alimentación, palanca de control y seguridad diseñados para mayor comodidad del operador. Pantalla LCD de alta definición que amplía el campo visual y facilita el monitoreo del estado de trabajo. Disponible con mástil de dos etapas de elevación libre o tres etapas, cabina cerrada de lujo, neumático sólido, desplazamiento lateral, pinza para bobinas y horquillas no estándar.',
+    specs: [
+      { label: 'Altura de elevación', value: '3,000 mm' },
+      { label: 'Tamaño de las uñas', value: '1,2020 × 150 × 60 mm' },
+      { label: 'Cilindros', value: '6' },
+      { label: 'Ancho total', value: '2,010 mm' },
+      { label: 'Altura del mástil plegado', value: '2,500 mm' },
+      { label: 'Altura de piso a techo', value: '2,470 mm' },
+      { label: 'Radio de giro mínimo', value: '2,415 mm' },
+      { label: 'Volante', value: '480 mm' },
+      { label: 'Longitud total', value: '3,450 mm' },
+      { label: 'Motor', value: 'MITSUBISHI' },
+      { label: 'Tipo de transmisión', value: 'Automática' },
+      { label: 'Peso del equipo', value: '9,150 kg' }
+    ]
+  },
+  {
+    id: 30, page: 6, name: 'Montacargas Eléctrico',
+    category: 'Montacargas', price: 680000.00, tonnage: 3, image: imgMontacargasElectrico,
+    description: 'Sistema de transmisión de potencia, guardia y marco tipo camión con estructura de doble suspensión, lo cual debilita la vibración transferida de ruedas. Sistema de alimentación, palanca de control y seguridad diseñados para mayor comodidad del operador. Pantalla LCD de alta definición que amplía el campo visual y facilita el monitoreo del estado de trabajo.',
+    specs: [
+      { label: 'Altura de elevación', value: '3,000 mm' },
+      { label: 'Tamaño de las uñas', value: '1,2020 × 150 × 60 mm' },
+      { label: 'Cilindros', value: '6' },
+      { label: 'Ancho total', value: '2,010 mm' },
+      { label: 'Altura del mástil plegado', value: '2,500 mm' },
+      { label: 'Altura de piso a techo', value: '2,470 mm' },
+      { label: 'Radio de giro mínimo', value: '2,415 mm' },
+      { label: 'Volante', value: '480 mm' },
+      { label: 'Longitud total', value: '3,450 mm' },
+      { label: 'Motor', value: 'MITSUBISHI' },
+      { label: 'Tipo de transmisión', value: 'Automática' },
+      { label: 'Peso del equipo', value: '9,150 kg' }
+    ]
+  },
+
+  // ==================== MESAS DE ELEVACIÓN ====================
+  {
+    id: 31, page: 7, name: 'Mesa de Elevación 1T · Altura 1M',
+    category: 'Mesas de Elevación', price: 12800.00, tonnage: 1, image: imgMesaElevacion1T,
+    description: 'Las mesas elevadoras de tijera proporcionan una solución ergonómica para levantar, colocar y transportar cargas pesadas.',
+    specs: [
+      { label: 'Capacidad', value: '1,000 kg / 1 T' },
+      { label: 'Altura mínima (H1)', value: '0.40 m (400 mm)' },
+      { label: 'Altura máxima (H2)', value: '1 m' },
+      { label: 'Peso del equipo', value: '105 kg' },
+      { label: 'Dimensiones de la mesa', value: '1.00 × 0.51 × 0.05 m (1000 × 510 × 50 mm)' },
+      { label: 'Dimensiones totales', value: '1.30 × 0.51 × 1.00 m (1300 × 510 × 1000 mm)' }
+    ]
+  },
+  {
+    id: 32, page: 7, name: 'Mesa de Elevación 350 kg',
+    category: 'Mesas de Elevación', price: 12400.00, tonnage: 0.35, image: imgMesaElevacion350,
+    description: 'Las mesas elevadoras de tijera proporcionan una solución ergonómica para levantar, colocar y transportar cargas pesadas.',
+    specs: [
+      { label: 'Modelo Red Power', value: 'Mesa de Elevación' },
+      { label: 'Capacidad', value: '350 kg' },
+      { label: 'Altura mínima (H1)', value: '0.35 m' },
+      { label: 'Altura máxima (H2)', value: '1.5 m' },
+      { label: 'Peso del equipo', value: '105 kg' },
+      { label: 'Dimensiones de la mesa', value: '0.90 × 0.51 × 0.05 m' },
+      { label: 'Dimensiones totales', value: '1.25 × 0.51 × 0.96 m' }
+    ]
+  },
+  {
+    id: 33, page: 7, name: 'Mesa Eléctrica 350 kg',
+    category: 'Mesas de Elevación', price: 43520.00, tonnage: 0.35, image: imgMesaElectrica350,
+    description: 'Con freno de seguridad para facilitar el mantenimiento. Los productos se utilizan ampliamente en las industrias de fabricación y mantenimiento.',
+    specs: [
+      { label: 'Tipo', value: 'Mesa Eléctrica 350 kg' },
+      { label: 'Capacidad de carga', value: '350 kg' },
+      { label: 'Altura mínima', value: '360 mm' },
+      { label: 'Altura máxima', value: '1,500 mm' },
+      { label: 'Dimensiones de la mesa', value: '905 × 500 × 50 mm' },
+      { label: 'Diámetro de la rueda', value: '125 mm' },
+      { label: 'Voltaje (V/kW)', value: '12 / 0.8' },
+      { label: 'Batería', value: '60 Ah' },
+      { label: 'Cargador de entrada', value: '220 V' },
+      { label: 'Peso neto', value: '140 kg' }
+    ]
+  },
+  {
+    id: 34, page: 7, name: 'Mesa Eléctrica 800 kg',
+    category: 'Mesas de Elevación', price: 45100.00, tonnage: 0.8, image: imgMesaElectrica800,
+    description: 'Con freno de seguridad para facilitar el mantenimiento. Los productos se utilizan ampliamente en las industrias de fabricación y mantenimiento.',
+    specs: [
+      { label: 'Modelo Red Power', value: 'Mesa Eléctrica 800 kg' },
+      { label: 'Capacidad', value: '800 kg' },
+      { label: 'Altura mínima', value: '410 mm' },
+      { label: 'Altura máxima', value: '1,000 mm' },
+      { label: 'Diámetro de la rueda', value: '150 mm' },
+      { label: 'Dimensiones del equipo', value: '1,016 × 510 × 50 mm' },
+      { label: 'Peso del equipo', value: '150 kg' },
+      { label: 'Voltaje (V/kW)', value: '12 / 0.8' },
+      { label: 'Batería', value: '80 Ah' },
+      { label: 'Cargador de entrada', value: '220 V' }
+    ]
+  },
+
+
 ];
 
 export const categories = [
@@ -492,7 +606,9 @@ export const categories = [
   'Patines Especiales',
   'Patines Cama Baja',
   'Patines Eléctricos',
-  'Apiladores'
+  'Apiladores',
+  'Montacargas',
+  'Mesas de Elevación'
 ];
 
 export const WHATSAPP_NUMBER = '525548619200';

@@ -164,7 +164,7 @@ export default function ProductDetailPage() {
 
             {/* Info de contacto adicional */}
             <p className="text-center text-gray-500 text-sm mt-4">
-              Respuesta en menos de <span className="text-white font-semibold">15 minutos</span> en horario laboral
+              Respuesta en menos de <span className="text-black/80 font-semibold">15 minutos</span> en horario laboral
             </p>
           </motion.div>
         </div>
@@ -255,7 +255,7 @@ export default function ProductDetailPage() {
                         src={rp.image}
                         alt={rp.name}
                         loading="lazy"
-                        className="absolute inset-0 w-full h-full object-contain p-6 transition-transform duration-700 group-hover:scale-105"
+                        className="absolute inset-0 w-full h-full object-contain p-2 transition-transform duration-700 group-hover:scale-105"
                       />
                     </div>
                     <div className="px-1">

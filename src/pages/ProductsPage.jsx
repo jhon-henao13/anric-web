@@ -160,7 +160,7 @@ export default function ProductsPage() {
                         src={product.image}
                         alt={product.name}
                         loading="lazy"
-                        className="absolute inset-0 w-full h-full object-contain p-1 md:p-2 transition-transform duration-700 group-hover:scale-105 rounded-[6rem]"
+                        className="absolute inset-0 w-full h-full object-contain p-1 md:p-2 transition-transform duration-700 group-hover:scale-105"
                       />
 
                       {/* Botón cotizar al hover (desktop) */}
