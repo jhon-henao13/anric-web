@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import bgHero from '../assets/background-hero.jpg';
 
 export default function Hero() {
@@ -55,14 +56,14 @@ export default function Hero() {
             class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
           >
             {/* Botón Principal (Cotizar) */}
-            <motion.a
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
-              href="#cotizar"
-              class="bg-anric-red hover:bg-anric-red-hover text-white font-extrabold text-lg px-7 py-3 rounded-md shadow-xl transition-all flex items-center justify-center gap-2 border border-red-500/30 glow-red"
-            >
-              Cotizar Ahora <span class="text-xl">→</span>
-            </motion.a>
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
+              <Link
+                to="/contacto"
+                className="bg-anric-red hover:bg-anric-red-hover text-white font-extrabold text-lg px-7 py-3 rounded-md shadow-xl transition-all flex items-center justify-center gap-2 border border-red-500/30 glow-red"
+              >
+                Cotizar Ahora <span className="text-xl">→</span>
+              </Link>
+            </motion.div>
 
             {/* Botón Secundario Translucido (Descargar Catálogo) */}
             <motion.a

@@ -5,7 +5,7 @@ export default function WhatsAppButton() {
   const [showTooltip, setShowTooltip] = useState(false);
 
   // Reemplaza con tu número de WhatsApp real (con código de país ej: 521...)
-  const whatsappNumber = "5215548619200"; 
+  const whatsappNumber = "525542900168"; 
   const message = encodeURIComponent("¡Hola ANRIC! Me gustaría cotizar un equipo hidráulico.");
 
   return (

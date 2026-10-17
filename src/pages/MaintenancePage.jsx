@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import AdvisorCTA from '../components/AdvisorCTA';
 
 export default function MaintenancePage() {
-  const whatsappNumber = "525548619200";
+  const whatsappNumber = "525542900168";
 
   const services = [
     {

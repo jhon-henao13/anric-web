@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logoImg from '../assets/logo.png';
+// import logoImg from '../assets/logo.png';
+import logoFooter from '../assets/logo-footer.png';
 import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
@@ -65,7 +66,7 @@ export default function Navbar() {
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out ${
       scrolled || mobileMenuOpen
         ? 'bg-black/90 backdrop-blur-md border-b border-white/10 shadow-2xl py-0' 
-        : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent border-transparent py-1'
+        : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent border-transparent py-3'
     }`}>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -74,11 +75,15 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center gap-3 group" onClick={() => setMobileMenuOpen(false)}>
+
               <img 
-                src={logoImg} 
+                src={logoFooter}
                 alt="ANRIC Equipos Hidráulicos" 
-                className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_2px_8px_rgba(199,7,0,0.3)]" 
+                className={`w-auto object-contain transition-all duration-500 ease-in-out group-hover:scale-105 filter drop-shadow-             [0_2px_8px_rgba(199,7,0,0.3)] ${
+                  scrolled || mobileMenuOpen ? 'h-16' : 'h-20'
+                }`}
               />
+
             </Link>
           </div>
 
