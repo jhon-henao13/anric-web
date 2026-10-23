@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 // Importación del logo de Footer indicado
 import logoFooter from '../assets/logo-footer.png';
@@ -9,24 +10,24 @@ export default function Footer() {
 
   const footerNavigation = {
     patines: [
-      { name: "Patines o Traspaletas", href: "#patines-hidraulicos" },
-      { name: "Patines Hidráulicos", href: "#patines-hidraulicos" },
-      { name: "Patines Eléctricos", href: "#patines-electricos" },
+      { name: "Patines o Traspaletas", to: "/productos?categoria=Patines" },
+      { name: "Patines Hidráulicos", to: "/productos?categoria=Patines" },
+      { name: "Patines Eléctricos", to: "/productos?categoria=Patines" },
     ],
     apiladores: [
-      { name: "Apiladores Eléctricos", href: "#apiladores" },
-      { name: "Apiladores Hidráulicos", href: "#apiladores" },
-      { name: "Apiladores Semi-eléctricos", href: "#apiladores" },
+      { name: "Apiladores Eléctricos", to: "/productos?categoria=Apiladores" },
+      { name: "Apiladores Hidráulicos", to: "/productos?categoria=Apiladores" },
+      { name: "Apiladores Semi-eléctricos", to: "/productos?categoria=Apiladores" },
     ],
     montacargas: [
-      { name: "Montacargas", href: "#montacargas" },
-      { name: "Montacargas Eléctricos", href: "#montacargas" },
-      { name: "Montacargas de Combustión", href: "#montacargas" },
+      { name: "Montacargas", to: "/productos?categoria=Montacargas" },
+      { name: "Montacargas Eléctricos", to: "/productos?categoria=Montacargas" },
+      { name: "Montacargas de Combustión", to: "/productos?categoria=Montacargas" },
     ],
     mantenimiento: [
-      { name: "Patines", href: "#mantenimiento" },
-      { name: "Apiladores", href: "#mantenimiento" },
-      { name: "Montacargas", href: "#mantenimiento" },
+      { name: "Patines", to: "/mantenimiento" },
+      { name: "Apiladores", to: "/mantenimiento" },
+      { name: "Montacargas", to: "/mantenimiento" },
     ],
   };
 
@@ -51,7 +52,7 @@ export default function Footer() {
     },
     {
       name: "Correo",
-      href: "mailto:contacto@anric.com.mx",
+      href: "mailto:ventas@anric.com.mx",
       icon: (
         <svg className="w-5 h-5 stroke-current fill-none" viewBox="0 0 24 24" strokeWidth="2">
           <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -90,18 +91,20 @@ export default function Footer() {
         {/* BLOQUE SUPERIOR: LOGO Y RESUMEN MARCA */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center pb-12 mb-12 border-b border-neutral-800/80 gap-6">
           <div className="flex items-center gap-4">
-            <img 
-              src={logoFooter} 
-              alt="ANRIC Equipos Industriales" 
-              className="h-16 sm:h-20 w-auto object-contain filter drop-shadow-[0_0_12px_rgba(255,255,255,0.15)]"
-            />
+            <Link to="/">
+              <img 
+                src={logoFooter} 
+                alt="ANRIC Equipos Industriales" 
+                className="h-16 sm:h-20 w-auto object-contain filter drop-shadow-[0_0_12px_rgba(255,255,255,0.15)] cursor-pointer"
+              />
+            </Link>
           </div>
           <p className="text-gray-400 text-xs sm:text-sm max-w-md font-normal leading-relaxed">
             Soluciones integrales para la movilización de carga pesada, venta, renta y mantenimiento de maquinaria logística en todo México.
           </p>
         </div>
 
-        {/* GRILLA PRINCIPAL DE NAVEGACIÓN (5 COLUMNAS DE LA IMAGEN) */}
+        {/* GRILLA PRINCIPAL DE NAVEGACIÓN */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 mb-16">
           
           {/* Columna 1: Patines */}
@@ -112,12 +115,12 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {footerNavigation.patines.map((item, idx) => (
                 <li key={idx}>
-                  <a 
-                    href={item.href} 
+                  <Link 
+                    to={item.to} 
                     className="text-xs sm:text-sm text-gray-400 hover:text-white transition-colors duration-200 hover:translate-x-1 inline-block transform"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -131,12 +134,12 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {footerNavigation.apiladores.map((item, idx) => (
                 <li key={idx}>
-                  <a 
-                    href={item.href} 
+                  <Link 
+                    to={item.to} 
                     className="text-xs sm:text-sm text-gray-400 hover:text-white transition-colors duration-200 hover:translate-x-1 inline-block transform"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -150,12 +153,12 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {footerNavigation.montacargas.map((item, idx) => (
                 <li key={idx}>
-                  <a 
-                    href={item.href} 
+                  <Link 
+                    to={item.to} 
                     className="text-xs sm:text-sm text-gray-400 hover:text-white transition-colors duration-200 hover:translate-x-1 inline-block transform"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -169,12 +172,12 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {footerNavigation.mantenimiento.map((item, idx) => (
                 <li key={idx}>
-                  <a 
-                    href={item.href} 
+                  <Link 
+                    to={item.to} 
                     className="text-xs sm:text-sm text-gray-400 hover:text-white transition-colors duration-200 hover:translate-x-1 inline-block transform"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -205,15 +208,15 @@ export default function Footer() {
 
         </div>
 
-        {/* LÍNEA SEPARADORA PUNTEADA Y PIE DE PÁGINA FINAL */}
+        {/* LÍNEA SEPARADORA Y PIE DE PÁGINA FINAL */}
         <div className="pt-8 border-t border-dashed border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
           <p className="tracking-wide">
             © {currentYear} <span className="text-white font-bold">ANRIC</span>. Todos los derechos reservados.
           </p>
           <div className="flex gap-6 text-gray-400">
-            <a href="#privacidad" className="hover:text-white transition-colors">Aviso de Privacidad</a>
+            <Link to="/contacto" className="hover:text-white transition-colors">Aviso de Privacidad</Link>
             <span>•</span>
-            <a href="#terminos" className="hover:text-white transition-colors">Términos y Condiciones</a>
+            <Link to="/contacto" className="hover:text-white transition-colors">Términos y Condiciones</Link>
           </div>
         </div>
 
