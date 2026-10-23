@@ -128,11 +128,14 @@ export default function Navbar() {
             <motion.a
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              href="#cotizar"
+              href="https://wa.me/525542900168?text=%C2%A1Hola%20ANRIC!%20Me%20gustar%C3%ADa%20cotizar%20un%20equipo%20hidr%C3%A1ulico."
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-anric-red hover:bg-anric-red-hover text-white font-extrabold text-base px-5 py-2.5 rounded-lg shadow-[0_0_15px_rgba(199,7,0,0.4)] transition-all flex items-center gap-2 tracking-wide border border-red-500/30"
             >
               Cotizar Ahora <span className="text-lg">→</span>
             </motion.a>
+            
           </div>
 
           {/* Botón Hamburguesa Móvil Animado */}
@@ -237,15 +240,20 @@ export default function Navbar() {
 
               {/* Botón CTA Destacado */}
               <motion.div variants={itemVariants} className="pt-2">
+
                 <motion.a 
                   whileTap={{ scale: 0.97 }}
-                  href="#cotizar" 
+                  href="https://wa.me/525542900168?text=%C2%A1Hola%20ANRIC!%20Me%20gustar%C3%ADa%20cotizar%20un%20equipo%20hidr%C3%A1ulico."
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)} 
                   className="flex items-center justify-center gap-2 w-full text-center bg-gradient-to-r from-anric-red to-anric-red-hover text-white font-extrabold text-base py-3.5 rounded-xl shadow-[0_4px_20px_rgba(199,7,0,0.4)] border border-red-500/40 tracking-wider uppercase transition-all"
                 >
                   <span>Cotizar Ahora</span>
                   <span className="text-lg">→</span>
                 </motion.a>
+
+                
               </motion.div>
 
             </div>

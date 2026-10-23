@@ -2,10 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export default function AdvisorCTA() {
-  const handleAdvisorClick = () => {
-    const message = "Hola, me gustaría recibir asesoría personalizada para elegir el equipo hidráulico adecuado para mi operación.";
-    window.open(`https://wa.me/525542900168?text=${encodeURIComponent(message)}`, '_blank');
-  };
+  const whatsappNumber = "525542900168";
+  const message = "Hola, me gustaría recibir asesoría personalizada para elegir el equipo hidráulico adecuado para mi operación.";
 
   return (
     <motion.section 
@@ -32,7 +30,7 @@ export default function AdvisorCTA() {
           Asesoría Especializada
         </span>
 
-        {/* Título Principal (Estructura y Jerarquía idéntica a la imagen) */}
+        {/* Título Principal */}
         <h2 className="font-anton text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase tracking-wide !leading-[1.3] drop-shadow-md">
           ¿No estás seguro de qué equipo necesita tu operación?
         </h2>
@@ -41,9 +39,11 @@ export default function AdvisorCTA() {
           Nuestro equipo técnico te ayuda a seleccionar el tonelaje, dimensiones y especificaciones exactas para maximizar la eficiencia de tu bodega.
         </p>
 
-        {/* 3. BOTÓN ESTILO "PILL" (Píldora premium alineado con la referencia) */}
-        <motion.button
-          onClick={handleAdvisorClick}
+        {/* 3. ENLACE ESTILO "PILL" REGISTRABLE POR GTM */}
+        <motion.a
+          href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`}
+          target="_blank"
+          rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.96 }}
           className="group/btn relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-white hover:bg-neutral-100 text-neutral-950 font-bold text-base md:text-lg tracking-tight shadow-[0_0_25px_rgba(255,255,255,0.2)] hover:shadow-[0_0_35px_rgba(255,255,255,0.4)] transition-all duration-300 cursor-pointer"
@@ -62,7 +62,7 @@ export default function AdvisorCTA() {
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
-        </motion.button>
+        </motion.a>
 
       </div>
     </motion.section>

@@ -128,12 +128,14 @@ export default function BestSellersSection() {
 
               {/* Botones de Acción */}
               <div className="grid grid-cols-2 gap-2 pt-2 border-t border-neutral-700/50">
-                <button
-                  onClick={() => handleWhatsAppOrder(product.title)}
+                <a
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`¡Hola ANRIC! Me interesa realizar un pedido del equipo: ${product.title}. ¿Me podrían dar más detalles?`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-anric-red hover:bg-anric-red-hover text-white font-extrabold text-xs sm:text-sm py-3 px-2 rounded-xl transition-all duration-200 shadow-md hover:shadow-red-900/50 active:scale-95 text-center leading-tight flex items-center justify-center"
                 >
                   Hacer Pedido
-                </button>
+                </a>
                 <button
                   onClick={() => setSelectedProduct(product)}
                   className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 text-white font-extrabold text-xs sm:text-sm py-3 px-2 rounded-xl transition-all duration-200 active:scale-95 text-center leading-tight flex items-center justify-center"
@@ -141,6 +143,8 @@ export default function BestSellersSection() {
                   Ver Detalles
                 </button>
               </div>
+
+              
             </motion.div>
           ))}
         </div>
@@ -196,15 +200,17 @@ export default function BestSellersSection() {
               </div>
 
               {/* Botón Pedido Modal */}
-              <button
-                onClick={() => {
-                  handleWhatsAppOrder(selectedProduct.title);
-                  setSelectedProduct(null);
-                }}
-                className="w-full bg-anric-red hover:bg-anric-red-hover text-white font-extrabold py-3.5 rounded-xl transition-colors shadow-lg text-center uppercase tracking-wide"
+              <a
+                href={selectedProduct ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`¡Hola ANRIC! Me interesa realizar un pedido del equipo: ${selectedProduct.title}. ¿Me podrían dar más detalles?`)}` : '#'}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setSelectedProduct(null)}
+                className="w-full block bg-anric-red hover:bg-anric-red-hover text-white font-extrabold py-3.5 rounded-xl transition-colors shadow-lg text-center uppercase tracking-wide"
               >
                 Cotizar este equipo por WhatsApp
-              </button>
+              </a>
+
+              
             </motion.div>
           </div>
         )}
