@@ -98,7 +98,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
           {/* COLUMNA IZQUIERDA: Ubicación e Información de Contacto */}
-          <motion.div 
+          {/* <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -126,7 +126,6 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* MAPA DE GOOGLE MAPS EMBEBIDO CON ESTILO OSCURO */}
               <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden border border-neutral-800 shadow-xl group">
                 <iframe
                   title="Ubicación Anric"
@@ -143,8 +142,10 @@ export default function Contact() {
                   Google Maps
                 </div>
               </div>
+
+              
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* COLUMNA DERECHA: Formulario Premium de Cotización */}
           <motion.div 
