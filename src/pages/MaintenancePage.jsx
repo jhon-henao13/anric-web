@@ -1,6 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import AdvisorCTA from '../components/AdvisorCTA';
+// Importación de imágenes locales de mantenimiento
+import imgPatines from '../assets/mantenimiento-patin.jpg';
+import imgMontacargasGas from '../assets/mantenimiento-montacargas.jpg';
+import imgMontacargasElectrico from '../assets/mantenimiento-montacargas-electrico.webp';
+
 
 export default function MaintenancePage() {
   const whatsappNumber = "525542900168";
@@ -10,7 +15,7 @@ export default function MaintenancePage() {
       id: "patines",
       title: "MANTENIMIENTO DE PATINES",
       subtitle: "DE PATINES",
-      image: "https://anric.com.mx/wp-content/uploads/2022/08/recortes-anric_0014_Grupo-23-1-300x300.jpg",
+      image: imgPatines,
       items: [
         "Corrección de fugas de aceite hidráulico",
         "Enderezado y soldadura de estructura",
@@ -26,7 +31,7 @@ export default function MaintenancePage() {
       id: "montacargas-gas",
       title: "MANTENIMIENTO DE MONTACARGAS GAS / GASOLINA",
       subtitle: "DE MONTACARGAS GAS / GASOLINA",
-      image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=800&auto=format&fit=crop",
+      image: imgMontacargasGas,
       items: [
         "Lavado a presión",
         "Afinación",
@@ -41,7 +46,7 @@ export default function MaintenancePage() {
       id: "montacargas-electrico",
       title: "MANTENIMIENTO DE MONTACARGAS ELÉCTRICO",
       subtitle: "DE MONTACARGAS ELÉCTRICO",
-      image: "https://anric.com.mx/wp-content/uploads/2022/08/recortes-anric_0020_Grupo-17-1-300x300.jpg",
+      image: imgMontacargasElectrico,
       items: [
         "Lavado a presión",
         "Lavado con dialéctico",
@@ -111,7 +116,7 @@ export default function MaintenancePage() {
                 
                 {/* COLUMNA MARCO DE IMAGEN */}
                 <div className="lg:col-span-5">
-                  <div className="relative w-full h-72 sm:h-80 bg-white rounded-2xl overflow-hidden p-1 flex items-center justify-center border border-neutral-700/50 group-hover:scale-[1.02] transition-transform duration-500">
+                  <div className="relative w-full h-72 sm:h-80 bg-white rounded-2xl overflow-hidden p-0 flex items-center justify-center border border-neutral-700/50 group-hover:scale-[1.02] transition-transform duration-500">
                     <img 
                       src={service.image} 
                       alt={service.title} 
