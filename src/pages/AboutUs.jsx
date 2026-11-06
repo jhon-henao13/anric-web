@@ -9,11 +9,10 @@ import ClientsTrustSection from '../components/ClientsTrustSection';
 
 import aboutCtaImg from '../assets/about-cta.webp';
 
-
 export default function AboutUs() {
-  const handleQuoteClick = () => {
-    window.open("https://wa.me/525542900168?text=Hola,%20quisiera%20recibir%20asesoría%20sobre%20equipos%20hidráulicos", "_blank");
-  };
+  // Número y mensaje estandarizado para WhatsApp (ideal para GTM)
+  const whatsappNumber = "525542900168";
+  const whatsappMessage = encodeURIComponent("Hola, quisiera recibir asesoría sobre equipos hidráulicos");
 
   return (
     <div className="bg-black text-white min-h-screen pt-24 pb-12 select-none overflow-hidden">
@@ -30,7 +29,6 @@ export default function AboutUs() {
             className="lg:col-span-6 space-y-6"
           >
             <div className="space-y-2">
-              
               <h1 className="font-anton text-5xl sm:text-6xl lg:text-7xl uppercase tracking-wide text-white leading-tight">
                 ¿QUIÉNES <span className="text-anric-red">SOMOS?</span>
               </h1>
@@ -51,7 +49,7 @@ export default function AboutUs() {
             </div>
           </motion.div>
 
-          {/* Imagen Derecha (Operario en almacén) */}
+          {/* Imagen Derecha */}
           <motion.div 
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -71,19 +69,19 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* 2. NUESTRA EXPERIENCIA, TU RESPALDO (Estadísticas) */}
+      {/* 2. NUESTRA EXPERIENCIA, TU RESPALDO */}
       <StatsSection />
 
-      {/* 3. ¿QUÉ NOS DIFERENCIA? (Pilares) */}
+      {/* 3. ¿QUÉ NOS DIFERENCIA? */}
       <WhyUsSection />
 
-      {/* 4. NUESTRA FORMA DE TRABAJAR (Proceso de 4 pasos) */}
+      {/* 4. NUESTRA FORMA DE TRABAJAR */}
       <WorkProcessSection />
 
-      {/* 5. LA CONFIANZA DE GRANDES EMPRESAS (Logos de Clientes) */}
+      {/* 5. LA CONFIANZA DE GRANDES EMPRESAS */}
       <ClientsTrustSection />
 
-      {/* 6. BANNER CTA FINAL: ¿LISTO PARA OPTIMIZAR TU OPERACIÓN? */}
+      {/* 6. BANNER CTA FINAL */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -111,27 +109,28 @@ export default function AboutUs() {
             </p>
 
             <div className="pt-2">
-              <motion.button
-                onClick={handleQuoteClick}
+              {/* Enlace nativo con Framer Motion óptimo para GTM */}
+              <motion.a
+                href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
-                className="bg-white hover:bg-neutral-100 text-black font-extrabold text-base px-8 py-4 rounded-xl shadow-xl transition-all duration-300 border border-white uppercase tracking-wider cursor-pointer"
+                className="inline-block bg-white hover:bg-neutral-100 text-black font-extrabold text-base px-8 py-4 rounded-xl shadow-xl transition-all duration-300 border border-white uppercase tracking-wider cursor-pointer text-center"
               >
                 Contactar a un Asesor
-              </motion.button>
+              </motion.a>
             </div>
           </div>
 
-          {/* Imagen Ilustrativa Montacargas con Asset Local */}
+          {/* Imagen Ilustrativa */}
           <div className="relative w-full lg:w-1/2 min-h-[300px] lg:min-h-full m-0 p-0 overflow-hidden">
             <img 
               src={aboutCtaImg} 
               alt="Montacargas Industrial ANRIC" 
               className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
             />
-            {/* Degradado lateral difuminado con tono gris intermedio del banner */}
             <div className="absolute inset-y-0 left-0 w-32 sm:w-40 bg-gradient-to-r from-neutral-900 via-neutral-900/60 to-transparent hidden lg:block pointer-events-none"></div>
-            {/* Sombra interna superior/inferior opcional para integración total */}
             <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-neutral-900/50 to-transparent hidden lg:block pointer-events-none"></div>
           </div>
           

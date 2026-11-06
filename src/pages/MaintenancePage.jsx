@@ -6,7 +6,6 @@ import imgPatines from '../assets/mantenimiento-patin.jpg';
 import imgMontacargasGas from '../assets/mantenimiento-montacargas.jpg';
 import imgMontacargasElectrico from '../assets/mantenimiento-montacargas-electrico.webp';
 
-
 export default function MaintenancePage() {
   const whatsappNumber = "525542900168";
 
@@ -70,11 +69,6 @@ export default function MaintenancePage() {
     }
   ];
 
-  const handleQuoteService = (serviceTitle) => {
-    const message = `Hola ANRIC, me gustaría agendar / cotizar el servicio de: ${serviceTitle}`;
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
-  };
-
   return (
     <div className="pt-28 pb-20 min-h-screen bg-black text-white relative select-none">
       {/* Resplandor ambiental de fondo */}
@@ -103,67 +97,75 @@ export default function MaintenancePage() {
 
         {/* LISTA DE SERVICIOS (CARDS MANTENIMIENTO) */}
         <div className="space-y-12 mb-16">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="bg-neutral-950 border border-neutral-800 rounded-3xl p-6 sm:p-10 hover:border-anric-red/60 hover:shadow-[0_0_30px_rgba(199,7,0,0.15)] transition-all duration-300 group"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                
-                {/* COLUMNA MARCO DE IMAGEN */}
-                <div className="lg:col-span-5">
-                  <div className="relative w-full h-72 sm:h-80 bg-white rounded-2xl overflow-hidden p-0 flex items-center justify-center border border-neutral-700/50 group-hover:scale-[1.02] transition-transform duration-500">
-                    <img 
-                      src={service.image} 
-                      alt={service.title} 
-                      className="max-h-full max-w-full object-contain mix-blend-multiply rounded-2xl"
-                    />
+          {services.map((service, index) => {
+            const whatsappMessage = encodeURIComponent(
+              `Hola ANRIC, me gustaría agendar / cotizar el servicio de: ${service.title}`
+            );
+
+            return (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                className="bg-neutral-950 border border-neutral-800 rounded-3xl p-6 sm:p-10 hover:border-anric-red/60 hover:shadow-[0_0_30px_rgba(199,7,0,0.15)] transition-all duration-300 group"
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                  
+                  {/* COLUMNA MARCO DE IMAGEN */}
+                  <div className="lg:col-span-5">
+                    <div className="relative w-full h-72 sm:h-80 bg-white rounded-2xl overflow-hidden p-0 flex items-center justify-center border border-neutral-700/50 group-hover:scale-[1.02] transition-transform duration-500">
+                      <img 
+                        src={service.image} 
+                        alt={service.title} 
+                        className="max-h-full max-w-full object-contain mix-blend-multiply rounded-2xl"
+                      />
+                    </div>
                   </div>
+
+                  {/* COLUMNA DETALLES Y CHECKLIST */}
+                  <div className="lg:col-span-7 space-y-6">
+                    <div>
+                      <h2 className="font-anton text-3xl sm:text-4xl text-white uppercase tracking-wide leading-tight">
+                        MANTENIMIENTO
+                      </h2>
+                      <p className="font-anton text-xl sm:text-2xl text-anric-red uppercase tracking-wide">
+                        {service.subtitle}
+                      </p>
+                    </div>
+
+                    {/* Lista de Items con viñeta Check */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                      {service.items.map((item, idx) => (
+                        <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-gray-300">
+                          <span className="text-anric-red font-extrabold text-sm flex-shrink-0">✓</span>
+                          <span className="font-light leading-snug">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Enlace Nativo de Acción (Detectado perfectamente por GTM) */}
+                    <div className="pt-4 border-t border-neutral-800/80">
+                      <motion.a
+                        href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="px-6 py-3.5 bg-anric-red hover:bg-anric-red-hover text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer w-full sm:w-auto"
+                      >
+                        <span>Solicitar Servicio Técnico</span>
+                        <span className="text-base">→</span>
+                      </motion.a>
+                    </div>
+
+                  </div>
+
                 </div>
-
-                {/* COLUMNA DETALLES Y CHECKLIST */}
-                <div className="lg:col-span-7 space-y-6">
-                  <div>
-                    <h2 className="font-anton text-3xl sm:text-4xl text-white uppercase tracking-wide leading-tight">
-                      MANTENIMIENTO
-                    </h2>
-                    <p className="font-anton text-xl sm:text-2xl text-anric-red uppercase tracking-wide">
-                      {service.subtitle}
-                    </p>
-                  </div>
-
-                  {/* Lista de Items con viñeta Check */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                    {service.items.map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-gray-300">
-                        <span className="text-anric-red font-extrabold text-sm flex-shrink-0">✓</span>
-                        <span className="font-light leading-snug">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Botón de Acción */}
-                  <div className="pt-4 border-t border-neutral-800/80">
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => handleQuoteService(service.title)}
-                      className="px-6 py-3.5 bg-anric-red hover:bg-anric-red-hover text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer w-full sm:w-auto"
-                    >
-                      <span>Solicitar Servicio Técnico</span>
-                      <span className="text-base">→</span>
-                    </motion.button>
-                  </div>
-
-                </div>
-
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* BANNER DE ASESORÍA / DUDAS TÉCNICAS */}

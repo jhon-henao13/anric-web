@@ -16,8 +16,19 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Construir mensaje directo a WhatsApp como fallback o integración rápida
+
+    // 1. Opcional/Recomendado para GTM: Empujar evento personalizado a dataLayer
+    if (window.dataLayer) {
+      window.dataLayer.push({
+        event: 'whatsapp_form_submit',
+        form_name: 'Contacto General',
+        client_name: formData.name
+      });
+    }
+
+    // 2. Construir mensaje directo a WhatsApp
     const textMessage = `*Nueva Consulta desde la Web Anric*\n\n*Nombre:* ${formData.name}\n*Email:* ${formData.email}\n*WhatsApp/Tel:* ${formData.phone}\n*Mensaje:* ${formData.message}`;
+    
     window.open(`https://wa.me/525542900168?text=${encodeURIComponent(textMessage)}`, '_blank');
     
     setSubmitted(true);
@@ -39,9 +50,6 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="mb-12 mt-10 text-center md:text-left"
         >
-          {/* <span className="text-anric-red text-xs font-semibold uppercase tracking-[0.2em] bg-anric-red/10 border border-anric-red/30 px-4 py-1.5 rounded-full inline-block mb-4">
-            Atención Inmediata
-          </span> */}
           <h1 className="font-anton text-5xl md:text-7xl uppercase text-white tracking-wide leading-tight">
             CONTÁC<span className="text-anric-red">TANOS</span>
           </h1>
@@ -50,7 +58,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        {/* BARRAS DE INFORMACIÓN RÁPIDA (Top highlights de la imagen) */}
+        {/* BARRAS DE INFORMACIÓN RÁPIDA */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -69,7 +77,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <a href="tel:5542900168" className="flex items-center gap-4 bg-neutral-950/60 border border-neutral-800/80 hover:border-anric-red/50 p-4 rounded-2xl transition-colors group">
+          <a href="tel:5548619200" className="flex items-center gap-4 bg-neutral-950/60 border border-neutral-800/80 hover:border-anric-red/50 p-4 rounded-2xl transition-colors group">
             <div className="w-12 h-12 rounded-xl bg-anric-red/10 border border-anric-red/30 flex items-center justify-center text-anric-red group-hover:scale-105 transition-transform">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -88,71 +96,18 @@ export default function Contact() {
               </svg>
             </div>
             <div>
-              <p className="text-xs text-gray-400 uppercase tracking-wider font-semibold">Correo Electrónico</p>
+              <p className="text-gray-400 text-xs uppercase tracking-wider font-semibold">Correo Electrónico</p>
               <p className="text-white font-semibold text-sm sm:text-base group-hover:text-anric-red transition-colors">ventas@anric.com.mx</p>
             </div>
           </a>
         </motion.div>
 
-        {/* CONTENIDO PRINCIPAL EN 2 COLUMNAS (Info + Mapa vs Formulario) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          
-          {/* COLUMNA IZQUIERDA: Ubicación e Información de Contacto */}
-          {/* <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5 space-y-8"
-          >
-            <div className="bg-neutral-950 border border-neutral-800 rounded-3xl p-6 md:p-8 space-y-6">
-              <h2 className="text-2xl font-anton uppercase text-white tracking-wide border-b border-neutral-800 pb-4">
-                Nuestra Ubicación
-              </h2>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-anric-red/10 border border-anric-red/30 flex items-center justify-center text-anric-red shrink-0 mt-1">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-white font-bold text-base mb-1">Dirección Fiscal y Bodega</h3>
-                  <p className="text-gray-300 leading-relaxed font-light text-sm sm:text-base">
-                    Calle Coahuila MZ. 52 LT. 5 <br />
-                    Col. Lázaro Cárdenas, Atizapán de Zaragoza <br />
-                    Edo. México, C.P. 54500
-                  </p>
-                </div>
-              </div>
-
-              <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden border border-neutral-800 shadow-xl group">
-                <iframe
-                  title="Ubicación Anric"
-                  src="https://maps.google.com/maps?q=Calle%20Coahuila%20MZ.%2052%20LT.%205%20Col.%20Lazaro%20Cardenas%20Atizapan%20de%20Zaragoza%20Edo.%20Mexico&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, filter: 'grayscale(0.9) contrast(1.2) invert(0.9)' }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute top-3 right-3 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-gray-300 border border-neutral-700">
-                  Google Maps
-                </div>
-              </div>
-
-              
-            </div>
-          </motion.div> */}
-
-          {/* COLUMNA DERECHA: Formulario Premium de Cotización */}
+        {/* CONTENIDO PRINCIPAL: Formulario de Cotización */}
+        <div className="max-w-3xl mx-auto">
           <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="lg:col-span-7"
           >
             <div className="bg-gradient-to-b from-neutral-900 via-neutral-950 to-black border border-neutral-800 rounded-3xl p-6 sm:p-10 shadow-2xl relative">
               <h2 className="text-2xl md:text-3xl font-anton uppercase text-white tracking-wide mb-2">
@@ -249,7 +204,6 @@ export default function Contact() {
               </form>
             </div>
           </motion.div>
-
         </div>
 
       </div>

@@ -9,7 +9,7 @@ import imgTijera15t from '../assets/equipos/patin-hidraulico/tijera.png';
 
 export default function BestSellersSection() {
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const whatsappNumber = "525542900168"; // Reemplazar con tu número real de WhatsApp
+  const whatsappNumber = "525542900168"; // Número de WhatsApp institucional
 
   const products = [
     {
@@ -62,11 +62,6 @@ export default function BestSellersSection() {
     }
   ];
 
-  const handleWhatsAppOrder = (productTitle) => {
-    const message = encodeURIComponent(`¡Hola ANRIC! Me interesa realizar un pedido del equipo: ${productTitle}. ¿Me podrían dar más detalles?`);
-    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
-  };
-
   return (
     <section id="mas-vendidos" className="relative py-20 bg-black text-white overflow-hidden select-none">
       
@@ -91,62 +86,66 @@ export default function BestSellersSection() {
 
         {/* Grilla de Productos de 4 Columnas */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-          {products.map((product, index) => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-[#212121]/90 border border-neutral-700/60 rounded-3xl p-4 flex flex-col justify-between hover:border-anric-red/80 hover:shadow-[0_0_25px_rgba(199,7,0,0.25)] transition-all duration-300 group"
-            >
-              <div>
-                {/* Contenedor de la Imagen con Marcas de Agua / Fondo */}
-                <div className="relative w-full h-52 bg-white rounded-2xl overflow-hidden flex items-center justify-center p-2 mb-4 group-hover:scale-[1.02] transition-transform duration-300">
-                  <img 
-                    src={product.image} 
-                    alt={product.title} 
-                    className="w-full h-full object-contain object-center"
-                  />
+          {products.map((product, index) => {
+            const whatsappMessage = encodeURIComponent(
+              `¡Hola ANRIC! Me interesa realizar un pedido del equipo: ${product.title}. ¿Me podrían dar más detalles?`
+            );
+
+            return (
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-[#212121]/90 border border-neutral-700/60 rounded-3xl p-4 flex flex-col justify-between hover:border-anric-red/80 hover:shadow-[0_0_25px_rgba(199,7,0,0.25)] transition-all duration-300 group"
+              >
+                <div>
+                  {/* Contenedor de la Imagen */}
+                  <div className="relative w-full h-52 bg-white rounded-2xl overflow-hidden flex items-center justify-center p-2 mb-4 group-hover:scale-[1.02] transition-transform duration-300">
+                    <img 
+                      src={product.image} 
+                      alt={product.title} 
+                      className="w-full h-full object-contain object-center"
+                    />
+                  </div>
+
+                  {/* Nombre del Producto */}
+                  <h3 className="font-anton text-xl sm:text-2xl text-white uppercase tracking-wider leading-tight min-h-[56px] flex items-center mb-2">
+                    {product.title}
+                  </h3>
+
+                  {/* Precio */}
+                  <div className="flex items-baseline gap-1.5 mb-5">
+                    <span className="font-anton text-2xl sm:text-3xl text-anric-red tracking-tight">
+                      {product.price}
+                    </span>
+                    <span className="text-xs font-extrabold text-gray-300 tracking-wider uppercase">
+                      MXN • IVA
+                    </span>
+                  </div>
                 </div>
 
-                {/* Nombre del Producto */}
-                <h3 className="font-anton text-xl sm:text-2xl text-white uppercase tracking-wider leading-tight min-h-[56px] flex items-center mb-2">
-                  {product.title}
-                </h3>
-
-                {/* Precio */}
-                <div className="flex items-baseline gap-1.5 mb-5">
-                  <span className="font-anton text-2xl sm:text-3xl text-anric-red tracking-tight">
-                    {product.price}
-                  </span>
-                  <span className="text-xs font-extrabold text-gray-300 tracking-wider uppercase">
-                    MXN • IVA
-                  </span>
+                {/* Botones de Acción (Enlace nativo para "Hacer Pedido" optimizado para GTM) */}
+                <div className="grid grid-cols-2 gap-2 pt-2 border-t border-neutral-700/50">
+                  <a
+                    href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-anric-red hover:bg-anric-red-hover text-white font-extrabold text-xs sm:text-sm py-3 px-2 rounded-xl transition-all duration-200 shadow-md hover:shadow-red-900/50 active:scale-95 text-center leading-tight flex items-center justify-center"
+                  >
+                    Hacer Pedido
+                  </a>
+                  <button
+                    onClick={() => setSelectedProduct(product)}
+                    className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 text-white font-extrabold text-xs sm:text-sm py-3 px-2 rounded-xl transition-all duration-200 active:scale-95 text-center leading-tight flex items-center justify-center"
+                  >
+                    Ver Detalles
+                  </button>
                 </div>
-              </div>
-
-              {/* Botones de Acción */}
-              <div className="grid grid-cols-2 gap-2 pt-2 border-t border-neutral-700/50">
-                <a
-                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`¡Hola ANRIC! Me interesa realizar un pedido del equipo: ${product.title}. ¿Me podrían dar más detalles?`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-anric-red hover:bg-anric-red-hover text-white font-extrabold text-xs sm:text-sm py-3 px-2 rounded-xl transition-all duration-200 shadow-md hover:shadow-red-900/50 active:scale-95 text-center leading-tight flex items-center justify-center"
-                >
-                  Hacer Pedido
-                </a>
-                <button
-                  onClick={() => setSelectedProduct(product)}
-                  className="bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 text-white font-extrabold text-xs sm:text-sm py-3 px-2 rounded-xl transition-all duration-200 active:scale-95 text-center leading-tight flex items-center justify-center"
-                >
-                  Ver Detalles
-                </button>
-              </div>
-
-              
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
       </div>
@@ -199,9 +198,13 @@ export default function BestSellersSection() {
                 </ul>
               </div>
 
-              {/* Botón Pedido Modal */}
+              {/* Enlace Nativo de Pedido en Modal (Ideal para GTM) */}
               <a
-                href={selectedProduct ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`¡Hola ANRIC! Me interesa realizar un pedido del equipo: ${selectedProduct.title}. ¿Me podrían dar más detalles?`)}` : '#'}
+                href={
+                  selectedProduct 
+                    ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`¡Hola ANRIC! Me interesa realizar un pedido del equipo: ${selectedProduct.title}. ¿Me podrían dar más detalles?`)}` 
+                    : '#'
+                }
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setSelectedProduct(null)}
@@ -210,7 +213,6 @@ export default function BestSellersSection() {
                 Cotizar este equipo por WhatsApp
               </a>
 
-              
             </motion.div>
           </div>
         )}
